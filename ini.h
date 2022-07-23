@@ -142,6 +142,8 @@ public:
     File(std::ifstream&);
     File(const std::string&);
 
+    Section& operator[](const std::string&);
+
 private:
     void read(std::istream&);
 
@@ -161,6 +163,11 @@ inline File::File(const std::string& text)
 {
     std::istringstream stream(text);
     read(stream);
+}
+
+inline Section& File::operator[](const std::string& section_name)
+{
+    return m_sections[section_name];
 }
 
 inline void File::read(std::istream& stream)
