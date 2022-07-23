@@ -261,4 +261,9 @@ inline void File::read(std::istream& stream)
     }
 }
 
+inline File load(std::ifstream& stream)
+{
+    return File(stream);
+}
+
 } // namespace ini
