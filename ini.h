@@ -271,4 +271,12 @@ inline File load(const std::string& text)
     return File(text);
 }
 
+inline File open(const std::filesystem::path& path)
+{
+    std::ifstream stream(path);
+    File file(stream);
+    stream.close();
+    return file;
+}
+
 } // namespace ini
