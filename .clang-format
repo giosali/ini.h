@@ -1,0 +1,5 @@
+---
+BasedOnStyle: WebKit
+FixNamespaceComments: true
+Language: Cpp
+UseTab: Never
