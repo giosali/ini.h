@@ -144,6 +144,7 @@ public:
 
     Section& operator[](const std::string&);
     bool has_section(const std::string&);
+    size_t remove_section(const std::string&);
 
 private:
     void read(std::istream&);
@@ -174,6 +175,11 @@ inline Section& File::operator[](const std::string& section_name)
 inline bool File::has_section(const std::string& section_name)
 {
     return m_sections.find(section_name) != m_sections.end();
+}
+
+inline size_t File::remove_section(const std::string& section_name)
+{
+    return m_sections.erase(section_name);
 }
 
 inline void File::read(std::istream& stream)
