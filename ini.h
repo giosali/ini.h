@@ -1,4 +1,4 @@
-#ifndef ini_h
-#define ini_h
+#ifndef INI_H
+#define INI_H
 
 #endif
