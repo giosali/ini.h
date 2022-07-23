@@ -152,6 +152,8 @@ public:
     void rename_section(const std::string&, const std::string&);
     void write(const std::filesystem::path&);
 
+    std::filesystem::path path;
+
 private:
     void read(std::istream&);
 
@@ -275,6 +277,7 @@ inline File open(const std::filesystem::path& path)
 {
     std::ifstream stream(path);
     File file(stream);
+    file.path = path;
     stream.close();
     return file;
 }
