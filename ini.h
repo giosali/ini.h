@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cctype>
 #include <cstddef>
+#include <filesystem>
 #include <fstream>
 #include <istream>
 #include <sstream>
@@ -149,6 +150,7 @@ public:
     bool has_section(const std::string&);
     size_t remove_section(const std::string&);
     void rename_section(const std::string&, const std::string&);
+    void write(const std::filesystem::path&);
 
 private:
     void read(std::istream&);
@@ -199,6 +201,25 @@ inline void File::rename_section(const std::string& old_section_name, const std:
     std::_Node_handle section = m_sections.extract(old_section_name);
     section.key() = new_section_name;
     m_sections.insert(std::move(section));
+}
+
+inline void File::write(const std::filesystem::path& path)
+{
+    std::ofstream stream(path);
+    if (!stream.is_open()) {
+        throw std::invalid_argument("stream is closed");
+    }
+
+    for (auto const& [section_name, section] : m_sections) {
+        stream << "[" << section_name << "]" << std::endl;
+        for (auto const& [key, value] : section) {
+            stream << key << " = " << value << std::endl;
+        }
+
+        stream << std::endl;
+    }
+
+    stream.close();
 }
 
 inline void File::read(std::istream& stream)
