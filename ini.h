@@ -266,4 +266,9 @@ inline File load(std::ifstream& stream)
     return File(stream);
 }
 
+inline File load(const std::string& text)
+{
+    return File(text);
+}
+
 } // namespace ini
