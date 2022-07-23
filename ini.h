@@ -143,6 +143,7 @@ public:
     File(const std::string&);
 
     Section& operator[](const std::string&);
+    bool has_section(const std::string&);
 
 private:
     void read(std::istream&);
@@ -168,6 +169,11 @@ inline File::File(const std::string& text)
 inline Section& File::operator[](const std::string& section_name)
 {
     return m_sections[section_name];
+}
+
+inline bool File::has_section(const std::string& section_name)
+{
+    return m_sections.find(section_name) != m_sections.end();
 }
 
 inline void File::read(std::istream& stream)
