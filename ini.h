@@ -27,6 +27,33 @@ namespace {
         }
     }
 
+    inline std::string trim(const std::string& str)
+    {
+        if (str.empty()) {
+            return str;
+        }
+
+        size_t length = str.length();
+
+        // Trim head
+        size_t start = 0;
+        for (; start < length; start++) {
+            if (str[start] != ' ') {
+                break;
+            }
+        }
+
+        // Trim tail
+        size_t end = length - 1;
+        for (; end >= start; end--) {
+            if (str[end] != ' ') {
+                break;
+            }
+        }
+
+        return str.substr(start, end - start + 1);
+    }
+
 } // namespace
 
 class Section {
@@ -112,7 +139,60 @@ inline void Section::set(const std::string& key, const T& value)
 
 class File {
 public:
-    File();
+    File(std::ifstream&);
+
+private:
+    void read(std::istream&);
+
+    std::unordered_map<std::string, Section> m_sections;
 };
+
+inline File::File(std::ifstream& stream)
+{
+    if (!stream.is_open()) {
+        throw std::invalid_argument("stream is closed");
+    }
+
+    read(stream);
+}
+
+inline void File::read(std::istream& stream)
+{
+    Section* section = nullptr;
+    std::string line;
+    while (std::getline(stream, line)) {
+        // Removes whitespace on both ends.
+        line = trim(line);
+
+        // Checks if the current line is a section declaration.
+        size_t r_bracket_pos = line.rfind(']');
+        if (line.find('[') == 0 && r_bracket_pos != std::string::npos) {
+            section = &m_sections[line.substr(1, r_bracket_pos - 1)];
+            continue;
+        }
+
+        // Skips the current line if it doesn't contain a delimiter ('=', ':')
+        // or if the line is a comment.
+        size_t delimiter_pos = std::min<size_t>(line.find('='), line.find(':'));
+        if (line.find(';') == 0 || line.find('#') == 0 || delimiter_pos == std::string::npos) {
+            continue;
+        }
+
+        // Throws an exception because if the section is null
+        // then a section header is missing from the configuration file.
+        if (section == nullptr) {
+            throw std::invalid_argument("file is missing a section header");
+        }
+
+        // Adds the key and value to the section.
+        std::string key = line.substr(0, delimiter_pos);
+        if (m_sections.find(key) != m_sections.end()) {
+            throw std::invalid_argument("key already exists");
+        }
+
+        std::string value = line.substr(delimiter_pos + 1);
+        (*section)[trim(key)] = trim(value);
+    }
+}
 
 } // namespace ini
