@@ -85,6 +85,8 @@ inline T Section::get(const std::string&)
         return std::stof(m_items[key]);
     } else if constexpr (std::is_same<T, double>::value) {
         return std::stod(m_items[key]);
+    } else if constexpr (std::is_same<T, std::string>::value) {
+        return m_items[key];
     } else {
         throw std::invalid_argument("type is not supported");
     }
