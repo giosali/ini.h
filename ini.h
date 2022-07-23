@@ -145,6 +145,7 @@ public:
     Section& operator[](const std::string&);
     bool has_section(const std::string&);
     size_t remove_section(const std::string&);
+    void rename_section(const std::string&, const std::string&);
 
 private:
     void read(std::istream&);
@@ -180,6 +181,21 @@ inline bool File::has_section(const std::string& section_name)
 inline size_t File::remove_section(const std::string& section_name)
 {
     return m_sections.erase(section_name);
+}
+
+inline void File::rename_section(const std::string& old_section_name, const std::string& new_section_name)
+{
+    if (m_sections.find(old_section_name) == m_sections.end()) {
+        throw std::invalid_argument("old section name does not exist");
+    }
+
+    if (m_sections.find(new_section_name) != m_sections.end()) {
+        throw std::invalid_argument("new section name already exists");
+    }
+
+    std::_Node_handle section = m_sections.extract(old_section_name);
+    section.key() = new_section_name;
+    m_sections.insert(std::move(section));
 }
 
 inline void File::read(std::istream& stream)
