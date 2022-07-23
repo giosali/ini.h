@@ -2,6 +2,7 @@
 #define INI_H
 
 #include <algorithm>
+#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <unordered_map>
@@ -37,6 +38,8 @@ public:
     std::unordered_map<std::string, std::string>::iterator end();
     template <typename T>
     T get(const std::string&);
+    template <typename T>
+    void set(const std::string&, const T&);
 
 private:
     std::unordered_map<std::string, std::string> m_items;
@@ -82,6 +85,22 @@ inline T Section::get(const std::string&)
         return std::stof(m_items[key]);
     } else if constexpr (std::is_same<T, double>::value) {
         return std::stod(m_items[key]);
+    } else {
+        throw std::invalid_argument("type is not supported");
+    }
+}
+
+template <typename T>
+inline void Section::set(const std::string& key, const T& value)
+{
+    if constexpr (std::is_same<T, bool>::value) {
+        m_items[key] = value ? "true" : "false";
+    } else if constexpr (std::is_same<T, int>::value || std::is_same<T, float>::value || std::is_same<T, double>::value) {
+        std::ostringstream stream;
+        stream << value;
+        m_items[key] = stream.str();
+    } else if constexpr (std::is_same<T, std::string>::value) {
+        m_items[key] = value;
     } else {
         throw std::invalid_argument("type is not supported");
     }
