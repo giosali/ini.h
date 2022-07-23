@@ -2,6 +2,8 @@
 #define INI_H
 
 #include <algorithm>
+#include <fstream>
+#include <istream>
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -107,5 +109,10 @@ inline void Section::set(const std::string& key, const T& value)
         throw std::invalid_argument("type is not supported");
     }
 }
+
+class File {
+public:
+    File();
+};
 
 } // namespace ini
