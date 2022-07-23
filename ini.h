@@ -2,6 +2,7 @@
 #define INI_H
 
 #include <algorithm>
+#include <cstddef>
 #include <fstream>
 #include <istream>
 #include <sstream>
