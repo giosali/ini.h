@@ -140,6 +140,7 @@ inline void Section::set(const std::string& key, const T& value)
 class File {
 public:
     File(std::ifstream&);
+    File(const std::string&);
 
 private:
     void read(std::istream&);
@@ -153,6 +154,12 @@ inline File::File(std::ifstream& stream)
         throw std::invalid_argument("stream is closed");
     }
 
+    read(stream);
+}
+
+inline File::File(const std::string& text)
+{
+    std::istringstream stream(text);
     read(stream);
 }
 
