@@ -66,12 +66,12 @@ public:
 
     void clear() noexcept;
     bool empty() const noexcept;
-    bool has_key(const std::string&);
+    bool has_key(const std::string&) const;
     size_t remove_key(const std::string&);
     void rename_key(const std::string&, const std::string&);
     size_t size() const noexcept;
     template <typename T>
-    T get(const std::string&);
+    T get(const std::string&) const;
     template <typename T>
     void set(const std::string&, const T&);
     std::unordered_map<std::string, std::string>::const_iterator begin() const noexcept;
@@ -98,7 +98,7 @@ inline bool Section::empty() const noexcept
     return m_items.empty();
 }
 
-inline bool Section::has_key(const std::string& key)
+inline bool Section::has_key(const std::string& key) const
 {
     return m_items.find(key) != m_items.end();
 }
@@ -133,7 +133,7 @@ size_t Section::size() const noexcept
 }
 
 template <typename T>
-inline T Section::get(const std::string& key)
+inline T Section::get(const std::string& key) const
 {
     if constexpr (std::is_same<T, bool>::value) {
         return stob(m_items[key]);
@@ -200,11 +200,11 @@ public:
     void add_section(const std::string&);
     void clear() noexcept;
     bool empty() const noexcept;
-    bool has_section(const std::string&);
+    bool has_section(const std::string&) const;
     size_t remove_section(const std::string&);
     void rename_section(const std::string&, const std::string&);
     size_t size() const noexcept;
-    void write(const std::filesystem::path&);
+    void write(const std::filesystem::path&) const;
     std::unordered_map<std::string, Section>::const_iterator begin() const noexcept;
     std::unordered_map<std::string, Section>::iterator begin() noexcept;
     std::unordered_map<std::string, Section>::const_iterator end() const noexcept;
@@ -257,7 +257,7 @@ inline bool File::empty() const noexcept
     return m_sections.empty();
 }
 
-inline bool File::has_section(const std::string& section_name)
+inline bool File::has_section(const std::string& section_name) const
 {
     return m_sections.find(section_name) != m_sections.end();
 }
@@ -291,7 +291,7 @@ inline size_t File::size() const noexcept
     return m_sections.size();
 }
 
-inline void File::write(const std::filesystem::path& path)
+inline void File::write(const std::filesystem::path& path) const
 {
     std::ofstream stream(path);
     if (!stream.is_open()) {
