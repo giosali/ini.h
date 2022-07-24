@@ -198,6 +198,10 @@ public:
     size_t remove_section(const std::string&);
     void rename_section(const std::string&, const std::string&);
     void write(const std::filesystem::path&);
+    std::unordered_map<std::string, Section>::const_iterator begin() const noexcept;
+    std::unordered_map<std::string, Section>::iterator begin() noexcept;
+    std::unordered_map<std::string, Section>::const_iterator end() const noexcept;
+    std::unordered_map<std::string, Section>::iterator end() noexcept;
     Section& operator[](const std::string&);
 
     std::filesystem::path path;
@@ -292,6 +296,26 @@ inline void File::write(const std::filesystem::path& path)
     }
 
     stream.close();
+}
+
+inline std::unordered_map<std::string, Section>::const_iterator File::begin() const noexcept
+{
+    return m_sections.begin();
+}
+
+inline std::unordered_map<std::string, Section>::iterator File::begin() noexcept
+{
+    return m_sections.begin();
+}
+
+inline std::unordered_map<std::string, Section>::const_iterator File::end() const noexcept
+{
+    return m_sections.end();
+}
+
+inline std::unordered_map<std::string, Section>::iterator File::end() noexcept
+{
+    return m_sections.end();
 }
 
 inline Section& File::operator[](const std::string& section_name)
