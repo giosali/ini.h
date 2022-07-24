@@ -2,6 +2,9 @@ site_name: ini.h
 site_url: https://giosali.github.io/ini.h/
 site_author: Giovanni Salinas
 site_description: A single-header library for reading and writing INI files in C++
+repo_name: giosali/ini.h
+repo_url: https://github.com/giosali/ini.h
+edit_uri: ""
 
 theme:
   name: material
@@ -21,14 +24,12 @@ theme:
         icon: material/toggle-switch
         name: Switch to dark mode
 
-repo_name: giosali/ini.h
-repo_url: https://github.com/giosali/ini.h
-edit_uri: ""
-
 nav:
   - Home: index.md
   - API:
     - ini: api/ini_namespace.md
+    - File:
+      - File: api/file/file.md
 
 markdown_extensions:
   - admonition
@@ -39,3 +40,4 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.tilde
