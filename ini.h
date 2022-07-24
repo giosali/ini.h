@@ -135,6 +135,10 @@ size_t Section::size() const noexcept
 template <typename T>
 inline T Section::get(const std::string& key) const
 {
+    if (m_items.find(key) == m_items.end()) {
+        throw std::invalid_argument("key does not exist");
+    }
+
     if constexpr (std::is_same<T, bool>::value) {
         return stob(m_items[key]);
     } else if constexpr (std::is_same<T, int>::value) {
