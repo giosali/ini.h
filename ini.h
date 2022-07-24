@@ -147,6 +147,7 @@ public:
     File(const std::string&);
 
     Section& operator[](const std::string&);
+    void add_section(const std::string&);
     bool has_section(const std::string&);
     size_t remove_section(const std::string&);
     void rename_section(const std::string&, const std::string&);
@@ -178,6 +179,15 @@ inline File::File(const std::string& text)
 inline Section& File::operator[](const std::string& section_name)
 {
     return m_sections[section_name];
+}
+
+inline void File::add_section(const std::string& section_name)
+{
+    if (m_sections.find(section_name) != m_sections.end()) {
+        throw std::invalid_argument("section already exists");
+    }
+
+    m_sections[section_name];
 }
 
 inline bool File::has_section(const std::string& section_name)
