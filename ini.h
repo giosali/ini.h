@@ -69,6 +69,7 @@ public:
     bool has_key(const std::string&);
     size_t remove_key(const std::string&);
     void rename_key(const std::string&, const std::string&);
+    size_t size() const noexcept;
     template <typename T>
     T get(const std::string&);
     template <typename T>
@@ -124,6 +125,11 @@ inline void Section::rename_key(const std::string& old_key, const std::string& n
     std::_Node_handle item = m_items.extract(old_key);
     item.key() = new_key;
     m_items.insert(std::move(item));
+}
+
+size_t Section::size() const noexcept
+{
+    return m_items.size();
 }
 
 template <typename T>
