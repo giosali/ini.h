@@ -133,11 +133,11 @@ inline size_t Section::remove(const std::string& key)
 inline void Section::rename(const std::string& old_key, const std::string& new_key)
 {
     if (m_items.find(old_key) == m_items.end()) {
-        throw std::invalid_argument("old section name does not exist");
+        throw std::invalid_argument("old key does not exist");
     }
 
     if (m_items.find(new_key) != m_items.end()) {
-        throw std::invalid_argument("new section name already exists");
+        throw std::invalid_argument("new key already exists");
     }
 
     std::_Node_handle item = m_items.extract(old_key);
