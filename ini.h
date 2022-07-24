@@ -64,11 +64,6 @@ class Section {
 public:
     Section();
 
-    std::unordered_map<std::string, std::string>::const_iterator begin() const;
-    std::unordered_map<std::string, std::string>::iterator begin();
-    std::unordered_map<std::string, std::string>::const_iterator end() const;
-    std::unordered_map<std::string, std::string>::iterator end();
-    std::string& operator[](const std::string&);
     void clear() noexcept;
     bool empty() noexcept;
     size_t remove_key(const std::string&);
@@ -77,6 +72,11 @@ public:
     T get(const std::string&);
     template <typename T>
     void set(const std::string&, const T&);
+    std::unordered_map<std::string, std::string>::const_iterator begin() const;
+    std::unordered_map<std::string, std::string>::iterator begin();
+    std::unordered_map<std::string, std::string>::const_iterator end() const;
+    std::unordered_map<std::string, std::string>::iterator end();
+    std::string& operator[](const std::string&);
 
 private:
     std::unordered_map<std::string, std::string> m_items;
@@ -84,31 +84,6 @@ private:
 
 inline Section::Section()
 {
-}
-
-inline std::string& Section::operator[](const std::string& key)
-{
-    return m_items[key];
-}
-
-inline std::unordered_map<std::string, std::string>::const_iterator Section::begin() const
-{
-    return m_items.begin();
-}
-
-inline std::unordered_map<std::string, std::string>::iterator Section::begin()
-{
-    return m_items.begin();
-}
-
-inline std::unordered_map<std::string, std::string>::const_iterator Section::end() const
-{
-    return m_items.end();
-}
-
-inline std::unordered_map<std::string, std::string>::iterator Section::end()
-{
-    return m_items.end();
 }
 
 inline void Section::clear() noexcept
@@ -179,12 +154,36 @@ inline void Section::set(const std::string& key, const T& value)
     }
 }
 
+inline std::unordered_map<std::string, std::string>::const_iterator Section::begin() const
+{
+    return m_items.begin();
+}
+
+inline std::unordered_map<std::string, std::string>::iterator Section::begin()
+{
+    return m_items.begin();
+}
+
+inline std::unordered_map<std::string, std::string>::const_iterator Section::end() const
+{
+    return m_items.end();
+}
+
+inline std::unordered_map<std::string, std::string>::iterator Section::end()
+{
+    return m_items.end();
+}
+
+inline std::string& Section::operator[](const std::string& key)
+{
+    return m_items[key];
+}
+
 class File {
 public:
     File(std::ifstream&);
     File(const std::string&);
 
-    Section& operator[](const std::string&);
     void add_section(const std::string&);
     void clear() noexcept;
     bool empty() noexcept;
@@ -192,6 +191,7 @@ public:
     size_t remove_section(const std::string&);
     void rename_section(const std::string&, const std::string&);
     void write(const std::filesystem::path&);
+    Section& operator[](const std::string&);
 
     std::filesystem::path path;
 
@@ -214,11 +214,6 @@ inline File::File(const std::string& text)
 {
     std::istringstream stream(text);
     read(stream);
-}
-
-inline Section& File::operator[](const std::string& section_name)
-{
-    return m_sections[section_name];
 }
 
 inline void File::add_section(const std::string& section_name)
@@ -286,6 +281,11 @@ inline void File::write(const std::filesystem::path& path)
     }
 
     stream.close();
+}
+
+inline Section& File::operator[](const std::string& section_name)
+{
+    return m_sections[section_name];
 }
 
 inline void File::read(std::istream& stream)
