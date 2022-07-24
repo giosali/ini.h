@@ -197,6 +197,7 @@ public:
     bool has_section(const std::string&);
     size_t remove_section(const std::string&);
     void rename_section(const std::string&, const std::string&);
+    size_t size() const noexcept;
     void write(const std::filesystem::path&);
     std::unordered_map<std::string, Section>::const_iterator begin() const noexcept;
     std::unordered_map<std::string, Section>::iterator begin() noexcept;
@@ -277,6 +278,11 @@ inline void File::rename_section(const std::string& old_section_name, const std:
     std::_Node_handle section = m_sections.extract(old_section_name);
     section.key() = new_section_name;
     m_sections.insert(std::move(section));
+}
+
+inline size_t File::size() const noexcept
+{
+    return m_sections.size();
 }
 
 inline void File::write(const std::filesystem::path& path)
