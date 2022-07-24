@@ -64,11 +64,11 @@ class Section {
 public:
     Section();
 
-    std::string& operator[](const std::string&);
     std::unordered_map<std::string, std::string>::const_iterator begin() const;
     std::unordered_map<std::string, std::string>::iterator begin();
     std::unordered_map<std::string, std::string>::const_iterator end() const;
     std::unordered_map<std::string, std::string>::iterator end();
+    std::string& operator[](const std::string&);
     template <typename T>
     T get(const std::string&);
     template <typename T>
@@ -148,6 +148,8 @@ public:
 
     Section& operator[](const std::string&);
     void add_section(const std::string&);
+    void clear() noexcept;
+    bool empty() noexcept;
     bool has_section(const std::string&);
     size_t remove_section(const std::string&);
     void rename_section(const std::string&, const std::string&);
@@ -188,6 +190,16 @@ inline void File::add_section(const std::string& section_name)
     }
 
     m_sections[section_name];
+}
+
+inline void File::clear() noexcept
+{
+    m_sections.clear();
+}
+
+inline bool File::empty() noexcept
+{
+    return m_sections.empty();
 }
 
 inline bool File::has_section(const std::string& section_name)
