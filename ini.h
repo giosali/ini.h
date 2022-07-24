@@ -215,8 +215,6 @@ public:
     std::unordered_map<std::string, Section>::iterator end() noexcept;
     Section& operator[](const std::string&);
 
-    std::filesystem::path path;
-
 private:
     void read(std::istream&);
 
@@ -392,7 +390,6 @@ inline File open(const std::filesystem::path& path)
 {
     std::ifstream stream(path);
     File file(stream);
-    file.path = path;
     stream.close();
     return file;
 }
