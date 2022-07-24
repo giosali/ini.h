@@ -187,6 +187,7 @@ inline std::string& Section::operator[](const std::string& key)
 
 class File {
 public:
+    File();
     File(std::ifstream&);
     File(const std::string&);
 
@@ -206,6 +207,10 @@ private:
 
     std::unordered_map<std::string, Section> m_sections;
 };
+
+inline File::File()
+{
+}
 
 inline File::File(std::ifstream& stream)
 {
