@@ -39,7 +39,7 @@ namespace {
 
         size_t length = str.length();
 
-        // Trim head
+        // Trims head.
         size_t start = 0;
         for (; start < length; start++) {
             if (str[start] != ' ') {
@@ -47,7 +47,7 @@ namespace {
             }
         }
 
-        // Trim tail
+        // Trims tail.
         size_t end = length - 1;
         for (; end >= start; end--) {
             if (str[end] != ' ') {
