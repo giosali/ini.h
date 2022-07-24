@@ -66,6 +66,7 @@ public:
 
     void clear() noexcept;
     bool empty() noexcept;
+    bool has_key(const std::string&);
     size_t remove_key(const std::string&);
     void rename_key(const std::string&, const std::string&);
     template <typename T>
@@ -94,6 +95,11 @@ inline void Section::clear() noexcept
 inline bool Section::empty() noexcept
 {
     return m_items.empty();
+}
+
+inline bool Section::has_key(const std::string& key)
+{
+    return m_items.find(key) != m_items.end();
 }
 
 inline size_t Section::remove_key(const std::string& key)
