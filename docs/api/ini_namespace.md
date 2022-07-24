@@ -4,15 +4,15 @@ Contains fundamental classes that represent the structure of an INI file and fun
 
 ## Classes
 
-| Name    | Description                            |
-| :------ | :------------------------------------- |
-| File    | Represents an INI file.                |
-| Section | Represents the section of an INI file. |
+| Name                   | Description                            |
+| :--------------------- | :------------------------------------- |
+| [File](./file/file.md) | Represents an INI file.                |
+| Section                | Represents the section of an INI file. |
 
 ## Functions
 
 | Name                               | Description                          |
 | :--------------------------------- | :----------------------------------- |
-| load(std::ifstream&)               | Reads and deserializes an input stream to an INI file line by line and returns a File object. |
-| load(const std::string&)           | Reads and deserializes a string and returns a File object. |
-| open(const std::filesystem::path&) | Opens, reads, and deserializes an INI file and returns a File object. |
+| load(std::ifstream&)               | Reads and deserializes an input stream to an INI file line by line and returns a [File](./file/file.md) object. |
+| load(const std::string&)           | Reads and deserializes a string and returns a [File](./file/file.md) object. |
+| open(const std::filesystem::path&) | Opens, reads, and deserializes an INI file and returns a [File](./file/file.md) object. |
