@@ -70,6 +70,7 @@ public:
     std::unordered_map<std::string, std::string>::iterator end();
     std::string& operator[](const std::string&);
     void clear() noexcept;
+    bool empty() noexcept;
     template <typename T>
     T get(const std::string&);
     template <typename T>
@@ -111,6 +112,11 @@ inline std::unordered_map<std::string, std::string>::iterator Section::end()
 inline void Section::clear() noexcept
 {
     m_items.clear();
+}
+
+inline bool Section::empty() noexcept
+{
+    return m_items.empty();
 }
 
 template <typename T>
