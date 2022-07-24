@@ -160,22 +160,22 @@ inline void Section::set(const std::string& key, const T& value)
     }
 }
 
-inline std::unordered_map<std::string, std::string>::const_iterator Section::begin() const
+inline std::unordered_map<std::string, std::string>::const_iterator Section::begin() const noexcept
 {
     return m_items.begin();
 }
 
-inline std::unordered_map<std::string, std::string>::iterator Section::begin()
+inline std::unordered_map<std::string, std::string>::iterator Section::begin() noexcept
 {
     return m_items.begin();
 }
 
-inline std::unordered_map<std::string, std::string>::const_iterator Section::end() const
+inline std::unordered_map<std::string, std::string>::const_iterator Section::end() const noexcept
 {
     return m_items.end();
 }
 
-inline std::unordered_map<std::string, std::string>::iterator Section::end()
+inline std::unordered_map<std::string, std::string>::iterator Section::end() noexcept
 {
     return m_items.end();
 }
