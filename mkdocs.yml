@@ -27,7 +27,8 @@ edit_uri: ""
 
 nav:
   - Home: index.md
-  - API: ini/ini_namespace.md
+  - API:
+    - ini: api/ini_namespace.md
 
 markdown_extensions:
   - admonition
