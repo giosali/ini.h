@@ -65,7 +65,7 @@ public:
     Section();
 
     void clear() noexcept;
-    bool empty() noexcept;
+    bool empty() const noexcept;
     bool has_key(const std::string&);
     size_t remove_key(const std::string&);
     void rename_key(const std::string&, const std::string&);
@@ -93,7 +93,7 @@ inline void Section::clear() noexcept
     m_items.clear();
 }
 
-inline bool Section::empty() noexcept
+inline bool Section::empty() const noexcept
 {
     return m_items.empty();
 }
@@ -199,7 +199,7 @@ public:
 
     void add_section(const std::string&);
     void clear() noexcept;
-    bool empty() noexcept;
+    bool empty() const noexcept;
     bool has_section(const std::string&);
     size_t remove_section(const std::string&);
     void rename_section(const std::string&, const std::string&);
@@ -252,7 +252,7 @@ inline void File::clear() noexcept
     m_sections.clear();
 }
 
-inline bool File::empty() noexcept
+inline bool File::empty() const noexcept
 {
     return m_sections.empty();
 }
