@@ -73,10 +73,10 @@ public:
     T get(const std::string&);
     template <typename T>
     void set(const std::string&, const T&);
-    std::unordered_map<std::string, std::string>::const_iterator begin() const;
-    std::unordered_map<std::string, std::string>::iterator begin();
-    std::unordered_map<std::string, std::string>::const_iterator end() const;
-    std::unordered_map<std::string, std::string>::iterator end();
+    std::unordered_map<std::string, std::string>::const_iterator begin() const noexcept;
+    std::unordered_map<std::string, std::string>::iterator begin() noexcept;
+    std::unordered_map<std::string, std::string>::const_iterator end() const noexcept;
+    std::unordered_map<std::string, std::string>::iterator end() noexcept;
     std::string& operator[](const std::string&);
 
 private:
