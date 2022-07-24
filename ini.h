@@ -108,7 +108,7 @@ inline std::unordered_map<std::string, std::string>::iterator Section::end()
 }
 
 template <typename T>
-inline T Section::get(const std::string&)
+inline T Section::get(const std::string& key)
 {
     if constexpr (std::is_same<T, bool>::value) {
         return stob(m_items[key]);
