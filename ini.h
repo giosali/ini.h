@@ -71,6 +71,7 @@ public:
     std::string& operator[](const std::string&);
     void clear() noexcept;
     bool empty() noexcept;
+    void rename(const std::string&, const std::string&);
     template <typename T>
     T get(const std::string&);
     template <typename T>
@@ -117,6 +118,21 @@ inline void Section::clear() noexcept
 inline bool Section::empty() noexcept
 {
     return m_items.empty();
+}
+
+inline void Section::rename(const std::string& old_key, const std::string& new_key)
+{
+    if (m_items.find(old_key) == m_items.end()) {
+        throw std::invalid_argument("old section name does not exist");
+    }
+
+    if (m_items.find(new_key) != m_items.end()) {
+        throw std::invalid_argument("new section name already exists");
+    }
+
+    std::_Node_handle item = m_items.extract(old_key);
+    item.key() = new_key;
+    m_items.insert(std::move(item));
 }
 
 template <typename T>
