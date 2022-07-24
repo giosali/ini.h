@@ -71,8 +71,8 @@ public:
     std::string& operator[](const std::string&);
     void clear() noexcept;
     bool empty() noexcept;
-    size_t remove(const std::string&);
-    void rename(const std::string&, const std::string&);
+    size_t remove_key(const std::string&);
+    void rename_key(const std::string&, const std::string&);
     template <typename T>
     T get(const std::string&);
     template <typename T>
@@ -121,7 +121,7 @@ inline bool Section::empty() noexcept
     return m_items.empty();
 }
 
-inline size_t Section::remove(const std::string& key)
+inline size_t Section::remove_key(const std::string& key)
 {
     if (m_items.find(key) == m_items.end()) {
         throw std::invalid_argument("key does not exist");
@@ -130,7 +130,7 @@ inline size_t Section::remove(const std::string& key)
     return m_items.erase(key);
 }
 
-inline void Section::rename(const std::string& old_key, const std::string& new_key)
+inline void Section::rename_key(const std::string& old_key, const std::string& new_key)
 {
     if (m_items.find(old_key) == m_items.end()) {
         throw std::invalid_argument("old key does not exist");
