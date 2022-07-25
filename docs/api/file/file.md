@@ -18,7 +18,7 @@ Represents an INI file.
 | :------------------------ | :---------------------------------------------------- |
 | File()                    | Initializes an instance of the [File](file.md) class. |
 | File(std::ifstream&)      | Initializes an instance of the [File](file.md) class and reads and deserializes an input file stream. |
-| File(const std::string&); | Initializes an instance of the [File](file.md) class and deserializes a [string](https://en.cppreference.com/w/cpp/string/basic_string). |
+| File(const std::string&) | Initializes an instance of the [File](file.md) class and deserializes a [string](https://en.cppreference.com/w/cpp/string/basic_string). |
 
 ## Functions
 
