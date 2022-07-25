@@ -26,6 +26,7 @@ nav:
         - add_section: api/file/functions/add_section.md
         - clear: api/file/functions/clear.md
         - empty: api/file/functions/empty.md
+        - has_section: api/file/functions/has_section.md
     - Section:
       - Section: api/section/section.md
     - load: api/load.md
