@@ -4,10 +4,10 @@ Contains fundamental classes that represent the structure of an INI file and fun
 
 ## Classes
 
-| Name                   | Description                            |
-| :--------------------- | :------------------------------------- |
-| [File](./file/file.md) | Represents an INI file.                |
-| Section                | Represents the section of an INI file. |
+| Name                            | Description                            |
+| :------------------------------ | :------------------------------------- |
+| [File](./file/file.md)          | Represents an INI file.                |
+| [Section](./section/section.md) | Represents the section of an INI file. |
 
 ## Functions
 
