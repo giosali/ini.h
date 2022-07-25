@@ -23,6 +23,7 @@ nav:
       - File: api/file/file.md
     - Section:
       - Section: api/section/section.md
+    - load: api/load.md
 
 markdown_extensions:
   - admonition
