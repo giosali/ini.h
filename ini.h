@@ -366,13 +366,13 @@ inline void File::read(std::istream& stream)
         }
 
         // Adds the key and value to the section.
-        std::string key = line.substr(0, delimiter_pos);
+        std::string key = trim(line.substr(0, delimiter_pos));
         if (m_sections.find(key) != m_sections.end()) {
             throw std::invalid_argument("key already exists");
         }
 
-        std::string value = line.substr(delimiter_pos + 1);
-        (*section)[trim(key)] = trim(value);
+        std::string value = trim(line.substr(delimiter_pos + 1));
+        (*section)[key] = value;
     }
 }
 
