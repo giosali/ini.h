@@ -2,7 +2,7 @@
 
 ## Definition
 
-~Namespace:~ ~[ini](../ini_namespace.md)~
+~Namespace:~ ~[ini](ini_namespace.md)~
 
 ## Overloads
 

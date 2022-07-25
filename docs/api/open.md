@@ -2,7 +2,7 @@
 
 ## Definition
 
-~Namespace:~ ~[ini](../ini_namespace.md)~
+~Namespace:~ ~[ini](ini_namespace.md)~
 
 Opens, reads, and deserializes an INI file and returns a [File](./file/file.md) object.
 
