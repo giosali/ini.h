@@ -14,6 +14,10 @@ Initializes an instance of the [File](file.md) class.
 | [File(std::ifstream&)](constructors.md#filestdifstream) | Initializes an instance of the [File](file.md) class and reads and deserializes an input file stream. |
 | [File(const std::string&)](constructors.md#fileconst-stdstring) | Initializes an instance of the [File](file.md) class and deserializes a [string](https://en.cppreference.com/w/cpp/string/basic_string). |
 
+## Remarks
+
+These constructors are not intended to be used directly by the caller. The caller should rely on the [load](../load.md) and [open](../open.md) functions instead.
+
 ## File()
 
 Initializes an instance of the [File](file.md) class.
