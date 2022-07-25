@@ -2,6 +2,8 @@
 
 ## Definition
 
+~Namespace:~ ~[ini](../../ini_namespace.md)~
+
 Indicates whether the [File](../file.md) instance contains a specified section.
 
 ## has_section(const std::string&)
