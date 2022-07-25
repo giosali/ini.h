@@ -24,6 +24,8 @@ The path to an INI file.
 
 ### Returns
 
+[File](./file/file.md)
+
 A [File](./file/file.md) object.
 
 ### Exceptions

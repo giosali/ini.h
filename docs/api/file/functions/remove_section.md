@@ -24,6 +24,8 @@ The name of the section to remove.
 
 ### Returns
 
+[size_t](https://en.cppreference.com/w/cpp/types/size_t)
+
 The number of sections removed.
 
 ### Exceptions

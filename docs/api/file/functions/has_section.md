@@ -24,6 +24,8 @@ The name of a section.
 
 ### Returns
 
+[bool](https://en.cppreference.com/w/cpp/language/types)
+
 `true` if `section_name` was found; otherwise, `false`.
 
 ### Examples

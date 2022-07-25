@@ -18,6 +18,8 @@ Indicates whether the [File](../file.md) instance contains no sections.
 
 ### Returns
 
+[bool](https://en.cppreference.com/w/cpp/language/types)
+
 `true` if the [File](../file.md) instance doesn't contain any sections; otherwise, `false`.
 
 ### Examples

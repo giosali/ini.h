@@ -29,6 +29,8 @@ The input file stream of an INI file.
 
 ### Returns
 
+[File](./file/file.md)
+
 A [File](./file/file.md) object.
 
 ### Exceptions
@@ -80,6 +82,8 @@ The caller is responsible for closing `stream`.
 A string that contains an INI-like structure.
 
 ### Returns
+
+[File](./file/file.md)
 
 A [File](./file/file.md) object.
 
