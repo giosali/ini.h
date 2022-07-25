@@ -24,6 +24,7 @@ nav:
       - Constructors: api/file/constructors.md
       - Functions:
         - add_section: api/file/functions/add_section.md
+        - clear: api/file/functions/clear.md
     - Section:
       - Section: api/section/section.md
     - load: api/load.md
