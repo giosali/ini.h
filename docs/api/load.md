@@ -25,7 +25,7 @@ Reads and deserializes an input stream of an INI file line by line and returns a
 
 `stream` [std::ifstream](https://en.cppreference.com/w/cpp/io/basic_ifstream)
 
-The input stream of an INI file.
+The input file stream of an INI file.
 
 ### Returns
 
