@@ -24,11 +24,11 @@ Represents an INI file.
 
 | Name | Description |
 | :--- | :---------- |
-| add_section(const std::string&) | Adds a section to the [File](file.md) instance. |
-| clear() | Removes all sections from the [File](file.md) instance. |
-| empty() | Indicates whether the [File](file.md) instance contains no sections. |
-| has_section(const std::string&) | Indicates whether the [File](file.md) instance contains a specified section. |
-| remove_section(const std::string&) | Removes the specified section from the [File](file.md) instance. |
-| rename_section(const std::string&, const std::string&) | Renames the specified section in the [File](file.md) instance. |
-| size() const noexcept | Returns the number of sections in the [File](file.md) instance. |
-| write(const std::filesystem::path&) | Serializes the [File](file.md) instance and writes it to the specified file path. |
+| [add_section(const std::string&)](functions/add_section.md) | Adds a section to the [File](file.md) instance. |
+| [clear()](functions/clear.md) | Removes all sections from the [File](file.md) instance. |
+| [empty()](functions/empty.md) | Indicates whether the [File](file.md) instance contains no sections. |
+| [has_section(const std::string&)](functions/has_section.md) | Indicates whether the [File](file.md) instance contains a specified section. |
+| [remove_section(const std::string&)](functions/remove_section.md) | Removes the specified section from the [File](file.md) instance. |
+| [rename_section(const std::string&, const std::string&)](functions/rename_section.md) | Renames the specified section in the [File](file.md) instance. |
+| [size()](functions/size.md) | Returns the number of sections in the [File](file.md) instance. |
+| [write(const std::filesystem::path&)](functions/write.md) | Serializes the [File](file.md) instance and writes it to the specified file path. |
