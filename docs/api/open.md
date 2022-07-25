@@ -28,6 +28,8 @@ A [File](./file/file.md) object.
 
 ### Exceptions
 
+[std::invalid_argument](https://en.cppreference.com/w/cpp/error/invalid_argument)
+
 The INI file is missing a section header.
 
 -or-
