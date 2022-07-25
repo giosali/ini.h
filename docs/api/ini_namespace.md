@@ -1,6 +1,6 @@
 # ini Namespace
 
-Contains fundamental classes that represent the structure of an INI file and functions for reading INI files or [strings](https://cplusplus.com/reference/string/string/) containing valid INI input and for writing INI files.
+Contains fundamental classes that represent the structure of an INI file and functions for reading INI files or [strings](https://en.cppreference.com/w/cpp/string/basic_string) containing valid INI input and for writing INI files.
 
 ## Classes
 

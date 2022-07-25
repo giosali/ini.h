@@ -23,7 +23,7 @@ Reads and deserializes an input stream of an INI file line by line and returns a
 
 ### Parameters
 
-`stream` [std::ifstream](https://cplusplus.com/reference/fstream/ifstream/)
+`stream` [std::ifstream](https://en.cppreference.com/w/cpp/io/basic_ifstream)
 
 The input stream of an INI file.
 
@@ -33,7 +33,7 @@ A [File](./file/file.md) object.
 
 ### Exceptions
 
-[std::invalid_argument](https://cplusplus.com/reference/stdexcept/invalid_argument/)
+[std::invalid_argument](https://en.cppreference.com/w/cpp/error/invalid_argument)
 
 `stream` is closed.
 
@@ -75,7 +75,7 @@ The caller is responsible for closing `stream`.
 
 ### Parameters
 
-`text` [std::string](https://cplusplus.com/reference/string/string/)
+`text` [std::string](https://en.cppreference.com/w/cpp/string/basic_string)
 
 A string that contains an INI-like structure.
 
@@ -85,7 +85,7 @@ A [File](./file/file.md) object.
 
 ### Exceptions
 
-[std::invalid_argument](https://cplusplus.com/reference/stdexcept/invalid_argument/)
+[std::invalid_argument](https://en.cppreference.com/w/cpp/error/invalid_argument)
 
 The INI file is missing a section header.
 
@@ -95,7 +95,7 @@ The INI file contains duplicate keys in a section.
 
 ### Examples
 
-The following example demonstrates how to read a [string](https://cplusplus.com/reference/string/string/).
+The following example demonstrates how to read a [string](https://en.cppreference.com/w/cpp/string/basic_string).
 
 ```cpp linenums="1" title="main.cpp"
 #include <string>
@@ -110,7 +110,7 @@ int main(int argc, char* argv[])
 
 ### Remarks
 
-`text` will break the deserialization process if it contains newlines in the values. For example, a [string](https://cplusplus.com/reference/string/string/) that resembles the following will be problematic:
+`text` will break the deserialization process if it contains newlines in the values. For example, a [string](https://en.cppreference.com/w/cpp/string/basic_string) that resembles the following will be problematic:
 
 ```ini
 [Section Header]
