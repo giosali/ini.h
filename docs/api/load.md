@@ -85,6 +85,8 @@ A [File](./file/file.md) object.
 
 ### Exceptions
 
+[std::invalid_argument](https://cplusplus.com/reference/stdexcept/invalid_argument/)
+
 The INI file is missing a section header.
 
 -or-
