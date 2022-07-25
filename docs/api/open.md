@@ -38,7 +38,7 @@ The INI file contains duplicate keys in a section.
 
 ### Examples
 
-The following example demonstrates how to read an INI file through a path.
+The following example demonstrates how to read an INI file through a file path.
 
 ```cpp linenums="1" title="main.cpp"
 #include <filesystem>
