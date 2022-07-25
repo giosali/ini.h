@@ -56,7 +56,7 @@ The following example demonstrates how to read an INI file using a file stream.
 int main(int argc, char* argv[])
 {
     std::ifstream stream("path/to/ini/example.ini");
-    ini::File file(stream);
+    ini::File file = ini::load(stream);
     stream.close();
 }
 ```
@@ -104,7 +104,7 @@ The following example demonstrates how to read a [string](https://en.cppreferenc
 int main(int argc, char* argv[])
 {
     std::string text = "[Settings]\nrunAtStartup = true\nisAutoSaveEnabled = false\n[Random]\nhello = world\npi = 3.14\nsentence = This is a long sentence; unfortunately, newlines don't work in values when the input is a string instead of an input stream :(";
-    ini::File file(text);
+    ini::File file = ini::load(text);
 }
 ```
 
