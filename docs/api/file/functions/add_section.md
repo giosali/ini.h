@@ -26,7 +26,7 @@ The name of the section that will be added.
 
 [std::invalid_argument](https://en.cppreference.com/w/cpp/error/invalid_argument)
 
-A section with the same name already exists.
+`section_name` already exists.
 
 ### Examples
 
