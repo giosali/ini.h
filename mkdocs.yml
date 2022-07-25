@@ -24,6 +24,7 @@ nav:
     - Section:
       - Section: api/section/section.md
     - load: api/load.md
+    - open: api/open.md
 
 markdown_extensions:
   - admonition
