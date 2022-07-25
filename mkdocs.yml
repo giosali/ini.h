@@ -21,6 +21,7 @@ nav:
     - ini: api/ini_namespace.md
     - File:
       - File: api/file/file.md
+      - Constructors: api/file/constructors.md
     - Section:
       - Section: api/section/section.md
     - load: api/load.md
