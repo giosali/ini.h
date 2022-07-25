@@ -21,6 +21,8 @@ nav:
     - ini: api/ini_namespace.md
     - File:
       - File: api/file/file.md
+    - Section:
+      - Section: api/section/section.md
 
 markdown_extensions:
   - admonition
