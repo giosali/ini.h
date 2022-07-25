@@ -29,6 +29,7 @@ nav:
         - has_section: api/file/functions/has_section.md
         - remove_section: api/file/functions/remove_section.md
         - rename_section: api/file/functions/rename_section.md
+        - size: api/file/functions/size.md
     - Section:
       - Section: api/section/section.md
     - load: api/load.md
