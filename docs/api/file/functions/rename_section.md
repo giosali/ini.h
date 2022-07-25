@@ -4,11 +4,11 @@
 
 ~Namespace:~ ~[ini](../../ini_namespace.md)~
 
-Renames the specified section in the [File](file.md) instance.
+Renames the specified section in the [File](../file.md) instance.
 
 ## rename_section(const std::string&, const std::string&)
 
-Renames the specified section in the [File](file.md) instance.
+Renames the specified section in the [File](../file.md) instance.
 
 !!! summary "rename_section(const std::string&, const std::string&)"
 
