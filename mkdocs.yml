@@ -30,6 +30,7 @@ nav:
         - remove_section: api/file/functions/remove_section.md
         - rename_section: api/file/functions/rename_section.md
         - size: api/file/functions/size.md
+        - write: api/file/functions/write.md
     - Section:
       - Section: api/section/section.md
     - load: api/load.md
