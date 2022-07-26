@@ -381,17 +381,21 @@ inline void File::read(std::istream& stream)
             throw std::invalid_argument("file is missing a section header");
         }
 
-        // Adds the key and value to the section.
         std::string key = trim(line.substr(0, delimiter_pos));
+
+        // Checks if the key is an empty string.
         if (key.empty()) {
             throw std::invalid_argument("keys cannot be empty");
         }
 
+        // Checks if the key already exists.
         if ((*section).has_key(key)) {
             throw std::invalid_argument("key already exists");
         }
 
         std::string value = trim(line.substr(delimiter_pos + 1));
+
+        // Adds the key and value to the section.
         (*section)[key] = value;
     }
 }
