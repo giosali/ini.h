@@ -257,6 +257,8 @@ namespace remove_section_constStdString {
         ASSERT_EXCEPTION(file.remove_section("Bar"), std::invalid_argument);
     }
 
+    // Case
+    // Section name exists in the File instance.
     UTEST(remove_section_constStdString, sectionExists)
     {
         ini::File file = ini::open("example.ini");
@@ -306,5 +308,25 @@ namespace rename_section_constStdString_constStdString {
     }
 
 } // namespace rename_section_constStdString_constStdString
+
+namespace size {
+
+    // Case
+    // File instance contains no sections.
+    UTEST(size, fileIsEmpty)
+    {
+        ini::File file = ini::load(std::string());
+        ASSERT_EQ(file.size(), 0);
+    }
+
+    // Case
+    // File instance is not empty.
+    UTEST(size, fileIsNotEmpty)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_GT(file.size(), 0);
+    }
+
+} // namespace size
 
 } // namespace file
