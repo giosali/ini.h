@@ -481,6 +481,17 @@ namespace rename_key {
         ASSERT_EXCEPTION(file["Section"].rename_key("foo", "key"), std::invalid_argument);
     }
 
+    // Case
+    // The old key is replaced by the new key
+    UTEST(rename_key, keyChanges)
+    {
+        std::string text = "[Section]\nkey = value\nfoo = bar";
+        ini::File file = ini::load(text);
+        file["Section"].rename_key("foo", "bar");
+        ASSERT_FALSE(file["Section"].has_key("foo"));
+        ASSERT_TRUE(file["Section"].has_key("bar"));
+    }
+
 } // namespace rename_key
 
 } // namespace section
