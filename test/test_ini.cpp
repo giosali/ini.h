@@ -340,9 +340,8 @@ namespace clear {
     UTEST(clear, section)
     {
         ini::File file = ini::open("example.ini");
-        ini::Section& section = file["Settings"];
-        section.clear();
-        ASSERT_TRUE(section.empty());
+        file["Settings"].clear();
+        ASSERT_TRUE(file["Settings"].empty());
     }
 
     // Case
@@ -350,9 +349,8 @@ namespace clear {
     UTEST(clear, emptySection)
     {
         ini::File file = ini::open("example.ini");
-        ini::Section& section = file["Foo"];
-        section.clear();
-        ASSERT_TRUE(section.empty());
+        file["Foo"].clear();
+        ASSERT_TRUE(file["Foo"].empty());
     }
 
 } // namespace clear
