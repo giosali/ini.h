@@ -114,6 +114,10 @@ inline size_t Section::remove_key(const std::string& key)
 
 inline void Section::rename_key(const std::string& old_key, const std::string& new_key)
 {
+    if (old_key.empty() || new_key.empty()) {
+        throw std::invalid_argument("keys cannot be empty");
+    }
+
     if (m_items.find(old_key) == m_items.end()) {
         throw std::invalid_argument("old key does not exist");
     }
