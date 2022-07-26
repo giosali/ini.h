@@ -275,6 +275,10 @@ inline size_t File::remove_section(const std::string& section_name)
 
 inline void File::rename_section(const std::string& old_section_name, const std::string& new_section_name)
 {
+    if (old_section_name.empty() || new_section_name.empty()) {
+        throw std::invalid_argument("section names cannot be empty");
+    }
+
     if (m_sections.find(old_section_name) == m_sections.end()) {
         throw std::invalid_argument("old section name does not exist");
     }
