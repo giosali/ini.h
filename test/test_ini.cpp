@@ -204,4 +204,24 @@ namespace clear {
 
 } // namespace clear
 
+namespace empty {
+
+    // Case
+    // File instance contains sections.
+    UTEST(empty, fileWithSections)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_FALSE(file.empty());
+    }
+
+    // Case
+    // File instance is empty.
+    UTEST(empty, emptyFile)
+    {
+        ini::File file = ini::load(std::string());
+        ASSERT_TRUE(file.empty());
+    }
+
+} // namespace empty
+
 } // namespace file
