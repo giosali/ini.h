@@ -405,4 +405,27 @@ namespace has_key {
 
 } // namespace has_key
 
+namespace remove_key {
+
+    // Case
+    // Key does not exist in Section.
+    UTEST(remove_key, mustThrow_keyDoesNotExist)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_EXCEPTION(file["Foo"].remove_key("bar"), std::invalid_argument);
+    }
+
+    // Case
+    // Key exists in the Section.
+    UTEST(remove_key, keyExists)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_TRUE(file["Settings"].has_key("foo"));
+        size_t count = file["Settings"].remove_key("foo");
+        ASSERT_TRUE(count == 1);
+        ASSERT_FALSE(file["Settings"].has_key("foo"));
+    }
+
+} // namespace remove_key
+
 } // namespace section
