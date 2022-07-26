@@ -242,6 +242,16 @@ namespace has_section_constStdString {
 namespace rename_section_constStdString_constStdString {
 
     // Case
+    // Either the old section name or the new section name is an empty string.
+    UTEST(rename_section_constStdString_constStdString, mustThrow_emptySectionName)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_EXCEPTION(file.rename_section(std::string(), "Bar"), std::invalid_argument);
+        ASSERT_EXCEPTION(file.rename_section("Bar", std::string()), std::invalid_argument);
+        ASSERT_EXCEPTION(file.rename_section(std::string(), std::string()), std::invalid_argument);
+    }
+
+    // Case
     // The old section name does not exist in the File instance.
     UTEST(rename_section_constStdString_constStdString, mustThrow_oldSectionNameDoesNotExist)
     {
