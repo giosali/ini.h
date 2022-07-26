@@ -224,4 +224,32 @@ namespace empty {
 
 } // namespace empty
 
+namespace has_section_constStdString {
+
+    // Case
+    // The section name exists in the File instance.
+    UTEST(has_section, sectionNameExists)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_TRUE(file.has_section("Foo"));
+    }
+
+    // Case
+    // The section name doesn't exist in the File instance.
+    UTEST(has_section, sectionNameDoesNotExist)
+    {
+        ini::File file = ini::load(std::string());
+        ASSERT_FALSE(file.has_section("Foo"));
+    }
+
+    // Case
+    // The section name is an empty string.
+    UTEST(has_section, sectionNameIsEmpty)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_FALSE(file.has_section(std::string()));
+    }
+
+} // namespace has_section_constStdString
+
 } // namespace file
