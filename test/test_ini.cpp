@@ -377,4 +377,32 @@ namespace empty {
 
 } // namespace empty
 
+namespace has_key {
+
+    // Case
+    // Key exists in the Section.
+    UTEST(has_key, keyExists)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_TRUE(file["Settings"].has_key("foo"));
+    }
+
+    // Case
+    // Key does not exist in the Section.
+    UTEST(has_key, keyDoesNotExists)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_FALSE(file["Foo"].has_key("bar"));
+    }
+
+    // Case
+    // Key is an empty string.
+    UTEST(has_key, emptyString)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_FALSE(file["Settings"].has_key(std::string()));
+    }
+
+} // namespace has_key
+
 } // namespace section
