@@ -494,4 +494,25 @@ namespace rename_key {
 
 } // namespace rename_key
 
+namespace size {
+
+    // Case
+    // Returns number of keys in a Section that contains keys.
+    UTEST(size, sectionContainsKeys)
+    {
+        std::string text = "[Section]\nkey1 = value1\nkey2 = value2\nkey3 = value3";
+        ini::File file = ini::load(text);
+        ASSERT_EQ(file["Section"].size(), 3);
+    }
+
+    // Case
+    // Section has no keys.
+    UTEST(size, sectionZeroKeys)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_EQ(file["Foo"].size(), 0);
+    }
+
+} // namespace size
+
 } // namespace section
