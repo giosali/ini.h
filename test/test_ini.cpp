@@ -257,6 +257,14 @@ namespace remove_section_constStdString {
         ASSERT_EXCEPTION(file.remove_section("Bar"), std::invalid_argument);
     }
 
+    UTEST(remove_section_constStdString, sectionExists)
+    {
+        ini::File file = ini::open("example.ini");
+        size_t count = file.remove_section("Foo");
+        ASSERT_EQ(count, 1);
+        ASSERT_FALSE(file.has_section("Foo"));
+    }
+
 } // namespace remove_section_constStdString
 
 namespace rename_section_constStdString_constStdString {
