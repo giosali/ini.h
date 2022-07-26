@@ -172,8 +172,8 @@ namespace add_section_constStdString {
 namespace clear {
 
     // Case
-    // There are zero sections remaining after using the clear function.
-    UTEST(clear, fileIsEmpty)
+    // A File instance with sections.
+    UTEST(clear, file)
     {
         ini::File file = ini::open("example.ini");
         file.clear();
@@ -330,3 +330,51 @@ namespace size {
 } // namespace size
 
 } // namespace file
+
+namespace section {
+
+namespace clear {
+
+    // Case
+    // A Section with key-value pairs.
+    UTEST(clear, section)
+    {
+        ini::File file = ini::open("example.ini");
+        ini::Section& section = file["Settings"];
+        section.clear();
+        ASSERT_TRUE(section.empty());
+    }
+
+    // Case
+    // A Section with no key-value pairs.
+    UTEST(clear, emptySection)
+    {
+        ini::File file = ini::open("example.ini");
+        ini::Section& section = file["Foo"];
+        section.clear();
+        ASSERT_TRUE(section.empty());
+    }
+
+} // namespace clear
+
+namespace empty {
+
+    // Case
+    // Section has key-value pairs.
+    UTEST(empty, sectionWithKeys)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_FALSE(file["Settings"].empty());
+    }
+
+    // Case
+    // Section has no key-value pairs.
+    UTEST(empty, emptySection)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_TRUE(file["Foo"].empty());
+    }
+
+} // namespace empty
+
+} // namespace section
