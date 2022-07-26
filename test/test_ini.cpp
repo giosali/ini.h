@@ -168,8 +168,8 @@ namespace add_section_constStdString {
     UTEST(add_section_constStdString, addsSection)
     {
         ini::File file = ini::open("example.ini");
-        file.add_section("Foo");
-        ASSERT_TRUE(file.has_section("Foo"));
+        file.add_section("Bar");
+        ASSERT_TRUE(file.has_section("Bar"));
     }
 
     // Case
@@ -181,5 +181,27 @@ namespace add_section_constStdString {
     }
 
 } // namespace add_section_constStdString
+
+namespace clear {
+
+    // Case
+    // There are zero sections remaining after using the clear function.
+    UTEST(clear, fileIsEmpty)
+    {
+        ini::File file = ini::open("example.ini");
+        file.clear();
+        ASSERT_TRUE(file.empty());
+    }
+
+    // Case
+    // Clearing an empty File instance should have no effect.
+    UTEST(clear, emptyFile)
+    {
+        ini::File file = ini::load(std::string());
+        file.clear();
+        ASSERT_TRUE(file.empty());
+    }
+
+} // namespace clear
 
 } // namespace file
