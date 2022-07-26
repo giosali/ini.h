@@ -7,11 +7,24 @@
 
 namespace load_stdIfstream {
 
+namespace mustNotThrow {
+
+    // Case
+    // The stream is an input file stream of an INI file.
+    UTEST(load_stdOfstream_mustNotThrow, inputFileStream)
+    {
+        std::ifstream stream("example.ini");
+        ini::File file = ini::load(stream);
+        stream.close();
+    }
+
+} // namespace mustNotThrow
+
 namespace mustThrow {
 
     // Case
     // The file stream is closed before being processed.
-    UTEST(load_stdIfstream_mustThrow, stream_is_closed)
+    UTEST(load_stdIfstream_mustThrow, streamIsClosed)
     {
         std::ifstream stream;
         stream.close();
