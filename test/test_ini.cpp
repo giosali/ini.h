@@ -114,6 +114,14 @@ UTEST(load_constStdString, mustThrow_emptySection)
 }
 
 // Case
+// Input contains an empty key in a section.
+UTEST(load_constStdString, mustThrow_emptyKey)
+{
+    std::string text = "[Section]\n= bar\nhello = world";
+    ASSERT_EXCEPTION(ini::load(text), std::invalid_argument);
+}
+
+// Case
 // Section must be created if the input isn't terminated by a newline
 // character.
 UTEST(load_constStdString, sectionDoesNotEndWithNewline)
