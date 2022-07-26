@@ -348,6 +348,10 @@ inline void File::read(std::istream& stream)
         // Checks if the current line is a section declaration.
         size_t r_bracket_pos = line.rfind(']');
         if (line.find('[') == 0 && r_bracket_pos != std::string::npos) {
+            if (r_bracket_pos == 1) {
+                throw std::invalid_argument("section headers cannot be empty");
+            }
+
             section = &m_sections[line.substr(1, r_bracket_pos - 1)];
             continue;
         }

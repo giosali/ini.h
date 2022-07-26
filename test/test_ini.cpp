@@ -116,6 +116,17 @@ namespace mustThrow {
         ASSERT_EXCEPTION(ini::load(text), std::invalid_argument);
     }
 
+    // Case
+    // Input contains an empty section.
+    UTEST(load_constStdString_mustThrow, emptySection)
+    {
+        std::string text = "[]\nfoo = bar";
+        ASSERT_EXCEPTION(ini::load(text), std::invalid_argument);
+
+        text = "[Section]\nfoo = bar\n\n[]\nfoo = bar";
+        ASSERT_EXCEPTION(ini::load(text), std::invalid_argument);
+    }
+
 } // namespace mustThrow
 
 namespace doesNotEndWithNewline {
