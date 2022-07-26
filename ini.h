@@ -152,17 +152,17 @@ inline T Section::get(const std::string& key) const
     }
 
     if constexpr (std::is_same<T, bool>::value) {
-        return stob(m_items[key]);
+        return stob(m_items.at(key));
     } else if constexpr (std::is_same<T, int>::value) {
-        return std::stoi(m_items[key]);
+        return std::stoi(m_items.at(key));
     } else if constexpr (std::is_same<T, float>::value) {
-        return std::stof(m_items[key]);
+        return std::stof(m_items.at(key));
     } else if constexpr (std::is_same<T, double>::value) {
-        return std::stod(m_items[key]);
+        return std::stod(m_items.at(key));
     } else if constexpr (std::is_same<T, size_t>::value) {
-        return stoszt(m_items[key]);
+        return stoszt(m_items.at(key));
     } else if constexpr (std::is_same<T, std::string>::value) {
-        return m_items[key];
+        return m_items.at(key);
     } else {
         throw std::invalid_argument("type is not supported");
     }
