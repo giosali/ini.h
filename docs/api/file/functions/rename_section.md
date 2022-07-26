@@ -30,6 +30,10 @@ The new name for the section.
 
 [std::invalid_argument](https://en.cppreference.com/w/cpp/error/invalid_argument)
 
+`old_section_name` or `new_section_name` is empty.
+
+-or-
+
 `old_section_name` doesn't exist.
 
 -or-
