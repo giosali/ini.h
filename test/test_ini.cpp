@@ -239,6 +239,26 @@ namespace has_section_constStdString {
 
 } // namespace has_section_constStdString
 
+namespace remove_section_constStdString {
+
+    // Case
+    // The section name is an empty string.
+    UTEST(remove_section_constStdString, mustThrow_sectionNameIsEmpty)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_EXCEPTION(file.remove_section(std::string()), std::invalid_argument);
+    }
+
+    // Case
+    // The name of the section to remove does not exist.
+    UTEST(remove_section_constStdString, mustThrow_sectionNameDoesNotExist)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_EXCEPTION(file.remove_section("Bar"), std::invalid_argument);
+    }
+
+} // namespace remove_section_constStdString
+
 namespace rename_section_constStdString_constStdString {
 
     // Case
