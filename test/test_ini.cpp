@@ -463,6 +463,24 @@ namespace rename_key {
         ASSERT_EXCEPTION(file["Section"].rename_key(std::string(), std::string()), std::invalid_argument);
     }
 
+    // Case
+    // THe old key to replace does not exist in the Section.
+    UTEST(rename_key, mustThrow_oldKeyDoesNotExist)
+    {
+        std::string text = "[Section]\nkey = value\nfoo = bar";
+        ini::File file = ini::load(text);
+        ASSERT_EXCEPTION(file["Section"].rename_key("bar", "car"), std::invalid_argument);
+    }
+
+    // Case
+    // The new key already exists in the Section.
+    UTEST(rename_key, mustThrow_newKeyAlreadyExists)
+    {
+        std::string text = "[Section]\nkey = value\nfoo = bar";
+        ini::File file = ini::load(text);
+        ASSERT_EXCEPTION(file["Section"].rename_key("foo", "key"), std::invalid_argument);
+    }
+
 } // namespace rename_key
 
 } // namespace section
