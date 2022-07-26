@@ -252,4 +252,24 @@ namespace has_section_constStdString {
 
 } // namespace has_section_constStdString
 
+namespace rename_section_constStdString_constStdString {
+
+    // Case
+    // The old section name does not exist in the File instance.
+    UTEST(rename_section_constStdString_constStdString, mustThrow_oldSectionNameDoesNotExist)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_EXCEPTION(file.rename_section("Bar", "bar"), std::invalid_argument);
+    }
+
+    // Case
+    // The new section name already exists in the File instance.
+    UTEST(rename_section_constStdString_constStdString, mustThrow_newSectionNameExists)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_EXCEPTION(file.rename_section("Settings", "Foo"), std::invalid_argument);
+    }
+
+} // namespace rename_section_constStdString_constStdString
+
 } // namespace file
