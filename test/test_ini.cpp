@@ -267,6 +267,16 @@ namespace rename_section_constStdString_constStdString {
         ASSERT_EXCEPTION(file.rename_section("Settings", "Foo"), std::invalid_argument);
     }
 
+    // Case
+    // The new section name replaces the old section name.
+    UTEST(rename_section_constStdString_constStdString, newSectionName)
+    {
+        ini::File file = ini::open("example.ini");
+        file.rename_section("Foo", "Bar");
+        ASSERT_FALSE(file.has_section("Foo"));
+        ASSERT_TRUE(file.has_section("Bar"));
+    }
+
 } // namespace rename_section_constStdString_constStdString
 
 } // namespace file
