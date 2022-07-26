@@ -56,6 +56,10 @@ The INI file is missing a section header.
 
 -or-
 
+The INI file contains an empty section header.
+
+-or-
+
 The INI file contains duplicate keys in a section.
 
 ## File(const std::string&)
@@ -79,6 +83,10 @@ A string that contains an INI-like structure.
 [std::invalid_argument](https://en.cppreference.com/w/cpp/error/invalid_argument)
 
 The INI file is missing a section header.
+
+-or-
+
+The INI file contains an empty section header.
 
 -or-
 

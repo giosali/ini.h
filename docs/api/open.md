@@ -36,6 +36,10 @@ The INI file is missing a section header.
 
 -or-
 
+The INI file contains an empty section header.
+
+-or-
+
 The INI file contains duplicate keys in a section.
 
 ### Examples
