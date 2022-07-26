@@ -1,8 +1,26 @@
 #include "ini.h"
 
 #include "utest.h"
+#include <fstream>
 #include <stdexcept>
 #include <string>
+
+namespace load_stdIfstream {
+
+namespace mustThrow {
+
+    // Case
+    // The file stream is closed before being processed.
+    UTEST(load_stdIfstream_mustThrow, stream_is_closed)
+    {
+        std::ifstream stream;
+        stream.close();
+        ASSERT_EXCEPTION(ini::load(stream), std::invalid_argument);
+    }
+
+} // namespace mustThrow
+
+} // namespace load_stdIfstream
 
 namespace load_constStdString {
 
