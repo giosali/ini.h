@@ -515,4 +515,74 @@ namespace size {
 
 } // namespace size
 
+namespace get {
+
+    // Case
+    // Retrieving a bool.
+    UTEST(get, bool)
+    {
+        std::string text = "[Section]\nfoo = true\nbar = false";
+        ini::File file = ini::load(text);
+        ASSERT_TRUE(file["Section"].get<bool>("foo"));
+        ASSERT_FALSE(file["Section"].get<bool>("bar"));
+    }
+
+    // Case
+    // Retrieving an int.
+    UTEST(get, int)
+    {
+        std::string text = "[Section]\nfoo = 5\nbar = -5";
+        ini::File file = ini::load(text);
+        int pos = file["Section"].get<int>("foo");
+        int neg = file["Section"].get<int>("bar");
+        ASSERT_EQ(pos, 5);
+        ASSERT_EQ(neg, -5);
+    }
+
+    // Case
+    // Retrieving a float.
+    UTEST(get, float)
+    {
+        std::string text = "[Section]\nfoo = 3.14\nbar = -3.14";
+        ini::File file = ini::load(text);
+        float pos = file["Section"].get<float>("foo");
+        float neg = file["Section"].get<float>("bar");
+        ASSERT_EQ(pos, 3.14f);
+        ASSERT_EQ(neg, -3.14f);
+    }
+
+    // Case
+    // Retrieving a double.
+    UTEST(get, double)
+    {
+        std::string text = "[Section]\nfoo = 1.23456789\nbar = -1.23456789";
+        ini::File file = ini::load(text);
+        double pos = file["Section"].get<double>("foo");
+        double neg = file["Section"].get<double>("bar");
+        ASSERT_EQ(pos, 1.23456789);
+        ASSERT_EQ(neg, -1.23456789);
+    }
+
+    // Case
+    // Retrieving a size_t.
+    UTEST(get, size_t)
+    {
+        std::string text = "[Section]\nfoo = 1";
+        ini::File file = ini::load(text);
+        size_t value = file["Section"].get<size_t>("foo");
+        ASSERT_EQ(value, 1);
+    }
+
+    // Case
+    // Retrieving a string.
+    UTEST(get, string)
+    {
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        std::string value = file["Section"].get<std::string>("foo");
+        ASSERT_EQ(value, "bar");
+    }
+
+} // namespace get
+
 } // namespace section
