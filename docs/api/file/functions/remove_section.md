@@ -32,6 +32,10 @@ The number of sections removed.
 
 [std::invalid_argument](https://en.cppreference.com/w/cpp/error/invalid_argument)
 
+`section_name` is empty.
+
+-or-
+
 `section_name` doesn't exist.
 
 ### Examples
