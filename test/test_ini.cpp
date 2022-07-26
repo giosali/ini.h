@@ -11,7 +11,7 @@ namespace mustNotThrow {
 
     // Case
     // The stream is an input file stream of an INI file.
-    UTEST(load_stdOfstream_mustNotThrow, inputFileStream)
+    UTEST(load_stdIfstream_mustNotThrow, inputFileStream)
     {
         std::ifstream stream("example.ini");
         ini::File file = ini::load(stream);
