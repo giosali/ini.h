@@ -31,6 +31,14 @@ namespace {
         }
     }
 
+    inline size_t stoszt(const std::string& str)
+    {
+        std::istringstream stream(str);
+        size_t n;
+        stream >> n;
+        return n;
+    }
+
     inline std::string trim(const std::string& str)
     {
         if (str.empty()) {
@@ -151,6 +159,8 @@ inline T Section::get(const std::string& key) const
         return std::stof(m_items[key]);
     } else if constexpr (std::is_same<T, double>::value) {
         return std::stod(m_items[key]);
+    } else if constexpr (std::is_same<T, size_t>::value) {
+        return stoszt(m_items[key]);
     } else if constexpr (std::is_same<T, std::string>::value) {
         return m_items[key];
     } else {
@@ -163,7 +173,7 @@ inline void Section::set(const std::string& key, const T& value)
 {
     if constexpr (std::is_same<T, bool>::value) {
         m_items[key] = value ? "true" : "false";
-    } else if constexpr (std::is_same<T, int>::value || std::is_same<T, float>::value || std::is_same<T, double>::value) {
+    } else if constexpr (std::is_same<T, int>::value || std::is_same<T, float>::value || std::is_same<T, double>::value || std::is_same<T, size_t>::value) {
         std::ostringstream stream;
         stream << value;
         m_items[key] = stream.str();
