@@ -123,7 +123,7 @@ namespace doesNotEndWithNewline {
     // Case
     // Section must be created if the input isn't terminated by a newline
     // character.
-    UTEST(load__constStdString_doesNotEndWithNewline, section)
+    UTEST(load_constStdString_doesNotEndWithNewline, section)
     {
         std::string text = "[Section]\nfoo = bar\n[Section 2]";
         ini::File file = ini::load(text);
@@ -133,7 +133,7 @@ namespace doesNotEndWithNewline {
     // Case
     // Key-value pair must be created if the input isn't terminated by
     // a newline character.
-    UTEST(load__constStdString_doesNotEndWithNewline, key_value)
+    UTEST(load_constStdString_doesNotEndWithNewline, key_value)
     {
         std::string text = "[Section]\nfoo = bar";
         ini::File file = ini::load(text);
@@ -143,3 +143,43 @@ namespace doesNotEndWithNewline {
 } // namespace doesNotEndWithNewline
 
 } // namespace load_constStdString
+
+namespace open_constStdFilesystemPath {
+
+namespace mustNotThrow {
+
+    // Case
+    // Opening and reading an INI file.
+    UTEST(open_constStdFilesystemPath_mustNotThrow, filesystemPath)
+    {
+        ini::File file = ini::open("example.ini");
+    }
+
+} // namespace mustNotThrow
+
+} // namespace open_constStdFilesystemPath
+
+namespace file {
+
+namespace add_section_constStdString {
+
+    // Case
+    // Adds a section to the File instance.
+    UTEST(add_section_constStdString, addsSection)
+    {
+        ini::File file = ini::open("example.ini");
+        file.add_section("Foo");
+        ASSERT_TRUE(file.has_section("Foo"));
+    }
+
+    // Case
+    // Section name already exists.
+    UTEST(add_section_constStdString_mustThrow, sectionAlreadyExists)
+    {
+        ini::File file = ini::open("example.ini");
+        ASSERT_EXCEPTION(file.add_section("Settings"), std::invalid_argument);
+    }
+
+} // namespace add_section_constStdString
+
+} // namespace file
