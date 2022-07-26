@@ -383,6 +383,10 @@ inline void File::read(std::istream& stream)
 
         // Adds the key and value to the section.
         std::string key = trim(line.substr(0, delimiter_pos));
+        if (key.empty()) {
+            throw std::invalid_argument("keys cannot be empty");
+        }
+
         if ((*section).has_key(key)) {
             throw std::invalid_argument("key already exists");
         }
