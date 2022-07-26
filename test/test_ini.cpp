@@ -585,4 +585,135 @@ namespace get {
 
 } // namespace get
 
+namespace set {
+
+    // Case
+    // `true`.
+    UTEST(set, boolTrue)
+    {
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        std::string prev = file["Section"]["foo"];
+        file["Section"].set<bool>("foo", true);
+        ASSERT_NE(file["Section"]["foo"], prev);
+        ASSERT_EQ(file["Section"]["foo"], "true");
+    }
+
+    // Case
+    // `false`.
+    UTEST(set, boolFalse)
+    {
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        std::string prev = file["Section"]["foo"];
+        file["Section"].set<bool>("foo", false);
+        ASSERT_NE(file["Section"]["foo"], prev);
+        ASSERT_EQ(file["Section"]["foo"], "false");
+    }
+
+    // Case
+    // Positive int.
+    UTEST(set, positiveInt)
+    {
+        int value = 1;
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        std::string prev = file["Section"]["foo"];
+        file["Section"].set<int>("foo", value);
+        ASSERT_NE(file["Section"]["foo"], prev);
+        ASSERT_EQ(file["Section"]["foo"], std::to_string(value));
+    }
+
+    // Case
+    // Negative int.
+    UTEST(set, negativeInt)
+    {
+        int value = -1;
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        std::string prev = file["Section"]["foo"];
+        file["Section"].set<int>("foo", value);
+        ASSERT_NE(file["Section"]["foo"], prev);
+        ASSERT_EQ(file["Section"]["foo"], std::to_string(value));
+    }
+
+    // Case
+    // Positive float.
+    UTEST(set, positiveFloat)
+    {
+        float value = 3.14f;
+        std::ostringstream stream;
+        stream << value;
+
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        std::string prev = file["Section"]["foo"];
+        file["Section"].set<float>("foo", value);
+        ASSERT_NE(file["Section"]["foo"], prev);
+        ASSERT_EQ(file["Section"]["foo"], stream.str());
+    }
+
+    // Case
+    // Negative float.
+    UTEST(set, negativeFloat)
+    {
+        float value = -3.14f;
+        std::ostringstream stream;
+        stream << value;
+
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        std::string prev = file["Section"]["foo"];
+        file["Section"].set<float>("foo", value);
+        ASSERT_NE(file["Section"]["foo"], prev);
+        ASSERT_EQ(file["Section"]["foo"], stream.str());
+    }
+
+    // Case
+    // Negative double.
+    UTEST(set, positiveDouble)
+    {
+        double value = 1.2345789;
+        std::ostringstream stream;
+        stream << value;
+
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        std::string prev = file["Section"]["foo"];
+        file["Section"].set<double>("foo", value);
+        ASSERT_NE(file["Section"]["foo"], prev);
+        ASSERT_EQ(file["Section"]["foo"], stream.str());
+    }
+
+    // Case
+    // Negative double.
+    UTEST(set, negativeDouble)
+    {
+        double value = -1.2345789;
+        std::ostringstream stream;
+        stream << value;
+
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        std::string prev = file["Section"]["foo"];
+        file["Section"].set<double>("foo", value);
+        ASSERT_NE(file["Section"]["foo"], prev);
+        ASSERT_EQ(file["Section"]["foo"], stream.str());
+    }
+
+    // Case
+    // String.
+    UTEST(set, string)
+    {
+        std::string value = "Hello world";
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        std::string prev = file["Section"]["foo"];
+        file["Section"].set<std::string>("foo", value);
+        ASSERT_NE(file["Section"]["foo"], prev);
+        ASSERT_EQ(file["Section"]["foo"], value);
+    }
+
+} // namespace set
+
 } // namespace section
