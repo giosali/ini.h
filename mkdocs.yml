@@ -1,5 +1,5 @@
 site_name: ini.h
-site_url: https://giosali.github.io/ini.h/
+site_url: https://giosali.github.io/ini.h
 site_author: Giovanni Salinas
 site_description: A single-header library for reading and writing INI files in C++
 repo_name: giosali/ini.h
