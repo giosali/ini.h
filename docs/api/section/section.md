@@ -27,6 +27,6 @@ Represents a section of an INI file.
 | [has_key(const std::string&)](functions/has_key.md) | Indicates whether the [Section](section.md) instance contains a specified key. |
 | [remove_key(const std::string&)](functions/remove_key.md) | Removes the specified key from the [Section](section.md) instance. |
 | [rename_key(const std::string&, const std::string&)](functions/rename_key.md) | Renames the specified key in the [Section](section.md) instance. |
-| size() | Returns the number of keys in the [Section](section.md) instance. |
+| [size()](functions/size.md) | Returns the number of keys in the [Section](section.md) instance. |
 | get<T>(const std::string&) | Gets a value from the [Section](section.md) instance that is converted to the specified type before being returned. |
 | set<T>(const std::string&, const T&) | Sets the specified value in the [Section](section.md) instance based on the specified key and converts it to a [string](https://en.cppreference.com/w/cpp/string/basic_string). |
