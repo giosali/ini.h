@@ -10,7 +10,7 @@ Removes the specified key from the [Section](../section.md) instance.
 
 Removes the specified key from the [Section](../section.md) instance.
 
-!!! summary "has_key(const std::string&)"
+!!! summary "remove_key(const std::string&)"
 
     ```cpp
     inline size_t Section::remove_key(const std::string& key)
