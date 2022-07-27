@@ -25,7 +25,7 @@ Represents a section of an INI file.
 | [clear()](functions/clear.md) | Removes all keys from the [Section](section.md) instance. |
 | [empty()](functions/empty.md) | Indicates whether the [Section](section.md) instance contains no keys. |
 | [has_key(const std::string&)](functions/has_key.md) | Indicates whether the [Section](section.md) instance contains a specified key. |
-| remove_key(const std::string&) | Removes the specified key from the [Section](section.md) instance. |
+| [remove_key(const std::string&)](functions/remove_key.md) | Removes the specified key from the [Section](section.md) instance. |
 | rename_key(const std::string&, const std::string&) | Renames the specified key in the [Section](section.md) instance. |
 | size() | Returns the number of keys in the [Section](section.md) instance. |
 | get<T>(const std::string&) | Gets a value from the [Section](section.md) instance that is converted to the specified type before being returned. |
