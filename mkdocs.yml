@@ -37,6 +37,7 @@ nav:
       - Functions:
         - clear: api/section/functions/clear.md
         - empty: api/section/functions/empty.md
+        - get: api/section/functions/get.md
         - has_key: api/section/functions/has_key.md
         - remove_key: api/section/functions/remove_key.md
         - rename_key: api/section/functions/rename_key.md
@@ -53,6 +54,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.tilde
 
 plugins:
