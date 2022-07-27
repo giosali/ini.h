@@ -20,7 +20,7 @@ Returns the number of sections in the [File](../file.md) instance.
 
 [size_t](https://en.cppreference.com/w/cpp/types/size_t)
 
-The number of sectons in the [File](../file.md) instance.
+The number of sections in the [File](../file.md) instance.
 
 ### Examples
 
