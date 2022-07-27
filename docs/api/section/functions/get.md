@@ -6,7 +6,7 @@
 
 Gets a value from the [Section](section.md) instance that is converted to the specified type before being returned.
 
-## get<T>(const std::string&)
+## get<T\>(const std::string&)
 
 Gets a value from the [Section](section.md) instance that is converted to the specified type before being returned.
 
