@@ -23,7 +23,7 @@ Represents a section of an INI file.
 | Name| Description |
 | :-- | :---------- |
 | [clear()](functions/clear.md) | Removes all keys from the [Section](section.md) instance. |
-| empty() | Indicates whether the [Section](section.md) instance contains no keys. |
+| [empty()](functions/empty.md) | Indicates whether the [Section](section.md) instance contains no keys. |
 | has_key(const std::string&) | Indicates whether the [Section](section.md) instance contains a specified key. |
 | remove_key(const std::string&) | Removes the specified key from the [Section](section.md) instance. |
 | rename_key(const std::string&, const std::string&) | Renames the specified key in the [Section](section.md) instance. |
