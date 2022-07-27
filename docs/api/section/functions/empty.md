@@ -36,8 +36,8 @@ The following example demonstrates how to determine if a [Section](../section.md
         int main(int argc, char* argv[])
         {
             ini::File file = ini::open("example.ini");
-            std::cout << file["postgresql"].empty() << std::endl; // false
-            std::cout << file["user info"].empty() << std::endl; // true
+            std::cout << file["postgresql"].empty() << std::endl; // 0
+            std::cout << file["user info"].empty() << std::endl; // 1
         }
         ```
 
