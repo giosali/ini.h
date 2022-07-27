@@ -6,7 +6,7 @@
 
 Represents a section of an INI file.
 
-!!! summary "File class"
+!!! summary "Section class"
 
     ```cpp
     class Section
