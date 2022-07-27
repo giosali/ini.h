@@ -51,7 +51,7 @@ The following example demonstrates how to remove a key from a [Section](../secti
 
             // `section` must be a reference to a Section in order for
             // changes to be reflected in `file`.
-            Section& section = file["postgresql"];
+            ini::Section& section = file["postgresql"];
             std::cout << section.size() << std::endl; // 5
 
             size_t count = section.remove_key("password");
