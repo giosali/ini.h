@@ -337,6 +337,21 @@ namespace size {
 
 } // namespace size
 
+namespace subscript_operator {
+
+    UTEST(subscript_operator, file)
+    {
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        ini::Section& section = file["Section"];
+
+        std::string expected = "foo";
+        section["bar"] = expected;
+        ASSERT_EQ(expected, file["Section"]["bar"]);
+    }
+
+} // namespace subscript_operator
+
 } // namespace file
 
 namespace section {
@@ -743,5 +758,16 @@ namespace set {
     }
 
 } // namespace set
+
+namespace subscript_operator {
+
+    UTEST(subscript_operator, section)
+    {
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        ASSERT_EQ(file["Section"]["foo"], "bar");
+    }
+
+} // namespace subscript_operator
 
 } // namespace section
