@@ -110,7 +110,7 @@ The following example demonstrates how to retrieve a value from a [Section](../s
 
 #### std::string
 
-Although [get](get.md) supports [std::string](https://en.cppreference.com/w/cpp/string/basic_string), the caller should opt to use the subscript operator instead. It's much simpler (and more efficient) to do:
+Although [get](get.md) supports [std::string](https://en.cppreference.com/w/cpp/string/basic_string), the caller should opt to use the subscript operator instead. It's much simpler (*and more efficient*) to do:
 
 ```cpp
 ini::File file;
