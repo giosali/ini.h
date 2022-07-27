@@ -10,7 +10,7 @@ Gets a value from the [Section](../section.md) instance that is converted to the
 
 Gets a value from the [Section](../section.md) instance that is converted to the specified type before being returned.
 
-!!! summary "get<T>(conststd::string&)"
+!!! summary "get<T\>(conststd::string&)"
 
     ```cpp
     template <typename T>
