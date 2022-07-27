@@ -37,6 +37,7 @@ nav:
       - Functions:
         - clear: api/section/functions/clear.md
         - empty: api/section/functions/empty.md
+        - has_key: api/section/functions/has_key.md
     - load: api/load.md
     - open: api/open.md
 
