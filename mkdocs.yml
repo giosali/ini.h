@@ -41,6 +41,7 @@ nav:
         - has_key: api/section/functions/has_key.md
         - remove_key: api/section/functions/remove_key.md
         - rename_key: api/section/functions/rename_key.md
+        - set: api/section/functions/set.md
         - size: api/section/functions/size.md
     - load: api/load.md
     - open: api/open.md
