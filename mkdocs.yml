@@ -33,6 +33,7 @@ nav:
         - write: api/file/functions/write.md
     - Section:
       - Section: api/section/section.md
+      - Constructors: api/section/constructors.md
     - load: api/load.md
     - open: api/open.md
 

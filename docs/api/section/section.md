@@ -14,11 +14,11 @@ Represents a section of an INI file.
 
 ## Constructors
 
-| Constructor | Description                                                 |
-| :---------- | :---------------------------------------------------------- |
-| Section()   | Initializes an instance of the [Section](section.md) class. |
+| Constructor | Description |
+| :---------- | :---------- |
+| [Section()](constructors.md#section) | Initializes an instance of the [Section](section.md) class. |
 
-# Functions
+## Functions
 
 | Name| Description |
 | :-- | :---------- |
