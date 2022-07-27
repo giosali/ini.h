@@ -34,6 +34,8 @@ nav:
     - Section:
       - Section: api/section/section.md
       - Constructors: api/section/constructors.md
+      - Functions:
+        - clear: api/section/functions/clear.md
     - load: api/load.md
     - open: api/open.md
 
