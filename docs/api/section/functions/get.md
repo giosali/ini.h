@@ -4,11 +4,11 @@
 
 ~Namespace:~ ~[ini](../../ini_namespace.md)~
 
-Gets a value from the [Section](section.md) instance that is converted to the specified type before being returned.
+Gets a value from the [Section](../section.md) instance that is converted to the specified type before being returned.
 
 ## get<T\>(const std::string&)
 
-Gets a value from the [Section](section.md) instance that is converted to the specified type before being returned.
+Gets a value from the [Section](../section.md) instance that is converted to the specified type before being returned.
 
 !!! summary "get<T>(conststd::string&)"
 
