@@ -432,6 +432,34 @@ namespace remove_key {
         ASSERT_FALSE(file["Settings"].has_key("foo"));
     }
 
+    // Case
+    // Explicitly using an instance of a Section object.
+    UTEST(remove_key, explicitSectionInstance)
+    {
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        ini::Section section = file["Section"];
+        ASSERT_TRUE(file["Section"].has_key("foo"));
+
+        size_t count = section.remove_key("foo");
+        ASSERT_TRUE(count == 1);
+        ASSERT_TRUE(file["Section"].has_key("foo"));
+    }
+
+    // Case
+    // Explicitly using a reference to a Section object.
+    UTEST(remove_key, explicitSectionReference)
+    {
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        ini::Section& section = file["Section"];
+        ASSERT_TRUE(file["Section"].has_key("foo"));
+
+        size_t count = section.remove_key("foo");
+        ASSERT_TRUE(count == 1);
+        ASSERT_FALSE(file["Section"].has_key("foo"));
+    }
+
 } // namespace remove_key
 
 namespace rename_key {
