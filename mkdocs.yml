@@ -31,6 +31,8 @@ nav:
         - rename_section: api/file/functions/rename_section.md
         - size: api/file/functions/size.md
         - write: api/file/functions/write.md
+      - Operators:
+        - operator[]: api/file/operators/operator[].md
     - Section:
       - Section: api/section/section.md
       - Constructors: api/section/constructors.md

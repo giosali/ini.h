@@ -32,3 +32,9 @@ Represents an INI file.
 | [rename_section(const std::string&, const std::string&)](functions/rename_section.md) | Renames the specified section in the [File](file.md) instance. |
 | [size()](functions/size.md) | Returns the number of sections in the [File](file.md) instance. |
 | [write(const std::filesystem::path&)](functions/write.md) | Serializes the [File](file.md) instance and writes it to the specified file path. |
+
+## Operators
+
+| Name | Description |
+| :--- | :---------- |
+| [operator[]](operators/operator[].md) | Gets or sets a section that corresponds to the specified section name. |
