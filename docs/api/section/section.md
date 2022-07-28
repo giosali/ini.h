@@ -20,8 +20,8 @@ Represents a section of an INI file.
 
 ## Functions
 
-| Name| Description |
-| :-- | :---------- |
+| Name | Description |
+| :--- | :---------- |
 | [clear()](functions/clear.md) | Removes all keys from the [Section](section.md) instance. |
 | [empty()](functions/empty.md) | Indicates whether the [Section](section.md) instance contains no keys. |
 | [get<T\>(const std::string&)](functions/get) | Gets a value from the [Section](section.md) instance that is converted to the specified type before being returned. |
@@ -30,3 +30,9 @@ Represents a section of an INI file.
 | [rename_key(const std::string&, const std::string&)](functions/rename_key.md) | Renames the specified key in the [Section](section.md) instance. |
 | [size()](functions/size.md) | Returns the number of keys in the [Section](section.md) instance. |
 | [set<T\>(const std::string&, const T&)](functions/set.md) | Sets the specified value in the [Section](section.md) instance based on the specified key and converts it to a [string](https://en.cppreference.com/w/cpp/string/basic_string). |
+
+## Operators
+
+| Name | Description |
+| :--- | :---------- |
+| [operator[]](operators/operator[].md) | Gets or sets a value that corresponds to the specified key. |

@@ -43,6 +43,8 @@ nav:
         - rename_key: api/section/functions/rename_key.md
         - set: api/section/functions/set.md
         - size: api/section/functions/size.md
+      - Operators:
+        - operator[]: api/section/operators/operator[].md
     - load: api/load.md
     - open: api/open.md
 
