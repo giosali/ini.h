@@ -339,6 +339,17 @@ namespace size {
 
 namespace subscript_operator {
 
+    // Case
+    // The key parameter is an empty string.
+    UTEST(subscript_operator, mustThrow_emptySectionName)
+    {
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        ASSERT_EXCEPTION(file[""], std::invalid_argument);
+    }
+
+    // Case
+    // Subscripting on a File instance.
     UTEST(subscript_operator, file)
     {
         std::string text = "[Section]\nfoo = bar";
@@ -761,6 +772,17 @@ namespace set {
 
 namespace subscript_operator {
 
+    // Case
+    // The key parameter is an empty string.
+    UTEST(subscript_operator, mustThrow_emptyKey)
+    {
+        std::string text = "[Section]\nfoo = bar";
+        ini::File file = ini::load(text);
+        ASSERT_EXCEPTION(file["Section"][""], std::invalid_argument);
+    }
+
+    // Case
+    // Subscripting on a Section instance.
     UTEST(subscript_operator, section)
     {
         std::string text = "[Section]\nfoo = bar";
