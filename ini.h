@@ -206,6 +206,10 @@ inline std::unordered_map<std::string, std::string>::iterator Section::end() noe
 
 inline std::string& Section::operator[](const std::string& key)
 {
+    if (key.empty()) {
+        throw std::invalid_argument("keys cannot be empty");
+    }
+
     return m_items[key];
 }
 
@@ -356,6 +360,10 @@ inline std::unordered_map<std::string, Section>::iterator File::end() noexcept
 
 inline Section& File::operator[](const std::string& section_name)
 {
+    if (section_name.empty()) {
+        throw std::invalid_argument("section headers cannot be empty");
+    }
+
     return m_sections[section_name];
 }
 
