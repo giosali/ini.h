@@ -167,9 +167,7 @@ lineSpacing = 1.5
 - `; comment text`
 - `# comment text`
 
-```
-ℹ️ Comments must start at the beginning of a line.
-```
+> ℹ️ Comments must start at the beginning of a line.
 
 ### Case Sensitivity
 
