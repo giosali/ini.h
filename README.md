@@ -5,7 +5,7 @@
         <source media="(prefers-color-scheme: dark)"
                 srcset="https://raw.githubusercontent.com/giosali/ini.h/main/ext/logo-dark.png">
         <source media="(prefers-color-scheme: light)"
-                srcset="https://raw.githubusercontent.com/giosali/hypoinput/main/ext/logo-light.png">
+                srcset="https://raw.githubusercontent.com/giosali/ini.h/main/ext/logo-light.png">
         <img src="https://raw.githubusercontent.com/giosali/ini.h/main/ext/logo-dark.png"
              alt="Logo"
              width="175">
