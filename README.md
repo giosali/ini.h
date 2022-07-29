@@ -12,11 +12,13 @@
     </picture>
 </div>
 
-`ini.h` is a header-only library for reading and writing INI files in C++ through a simple, intuitive API.
+<p align="center">
+    <b>ini.h</b> is a header-only library for reading and writing INI files in C++ through a simple, intuitive API.
+</p>
 
 ## Intro
 
-To start using `ini.h`, copy the single header file and drop it into your project. Now you can use the library by adding the following directive: 
+To start using **ini.h**, copy the single header file and drop it into your project. Now you can use the library by adding the following directive: 
 
 ```cpp
 #include "ini.h"
@@ -30,7 +32,7 @@ To start using `ini.h`, copy the single header file and drop it into your projec
 
 ### Reading and Writing INI Files
 
-There are two ways to read and parse INI files with `ini.h`:
+There are two ways to read and parse INI files with **ini.h**:
 
 1. Through a file path
 2. Through a file stream
