@@ -7,7 +7,8 @@
         <source media="(prefers-color-scheme: light)"
                 srcset="https://raw.githubusercontent.com/giosali/hypoinput/main/ext/logo-light.png">
         <img src="https://raw.githubusercontent.com/giosali/ini.h/main/ext/logo-dark.png"
-             alt="Logo">
+             alt="Logo"
+             width="175">
     </picture>
 </div>
 
