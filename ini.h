@@ -319,7 +319,7 @@ inline void File::rename_section(const std::string& old_section_name, const std:
         throw std::invalid_argument("new section name already exists");
     }
 
-    std::_Node_handle section = m_sections.extract(old_section_name);
+    auto section = m_sections.extract(old_section_name);
     section.key() = new_section_name;
     m_sections.insert(std::move(section));
 }
