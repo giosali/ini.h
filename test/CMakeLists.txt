@@ -24,3 +24,9 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/example.ini
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+if("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang")
+    set_source_files_properties(test.c PROPERTIES
+      COMPILE_FLAGS "-Wall -Wextra -Weverything -Werror -std=c++17"
+    )
+endif()
