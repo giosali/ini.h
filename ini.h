@@ -144,7 +144,7 @@ inline void Section::rename_key(const std::string& old_key, const std::string& n
         throw std::invalid_argument("new key already exists");
     }
 
-    std::_Node_handle item = m_items.extract(old_key);
+    auto item = m_items.extract(old_key);
     item.key() = new_key;
     m_items.insert(std::move(item));
 }
