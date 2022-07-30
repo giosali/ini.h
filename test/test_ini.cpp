@@ -368,7 +368,7 @@ namespace subscript_operator {
 
         std::string expected = "foo";
         section["bar"] = expected;
-        ASSERT_EQ(expected, file["Section"]["bar"]);
+        ASSERT_STREQ(expected.c_str(), file["Section"]["bar"].c_str());
     }
 
 } // namespace subscript_operator
@@ -644,7 +644,7 @@ namespace get {
         std::string text = "[Section]\nfoo = bar";
         ini::File file = ini::load(text);
         std::string value = file["Section"].get<std::string>("foo");
-        ASSERT_EQ(value, "bar");
+        ASSERT_STREQ(value.c_str(), "bar");
     }
 
 } // namespace get
@@ -659,8 +659,8 @@ namespace set {
         ini::File file = ini::load(text);
         std::string prev = file["Section"]["foo"];
         file["Section"].set<bool>("foo", true);
-        ASSERT_NE(file["Section"]["foo"], prev);
-        ASSERT_EQ(file["Section"]["foo"], "true");
+        ASSERT_STRNE(file["Section"]["foo"].c_str(), prev.c_str());
+        ASSERT_STREQ(file["Section"]["foo"].c_str(), "true");
     }
 
     // Case
@@ -671,8 +671,8 @@ namespace set {
         ini::File file = ini::load(text);
         std::string prev = file["Section"]["foo"];
         file["Section"].set<bool>("foo", false);
-        ASSERT_NE(file["Section"]["foo"], prev);
-        ASSERT_EQ(file["Section"]["foo"], "false");
+        ASSERT_STRNE(file["Section"]["foo"].c_str(), prev.c_str());
+        ASSERT_STREQ(file["Section"]["foo"].c_str(), "false");
     }
 
     // Case
@@ -684,8 +684,8 @@ namespace set {
         ini::File file = ini::load(text);
         std::string prev = file["Section"]["foo"];
         file["Section"].set<int>("foo", value);
-        ASSERT_NE(file["Section"]["foo"], prev);
-        ASSERT_EQ(file["Section"]["foo"], std::to_string(value));
+        ASSERT_STRNE(file["Section"]["foo"].c_str(), prev.c_str());
+        ASSERT_STREQ(file["Section"]["foo"].c_str(), std::to_string(value).c_str());
     }
 
     // Case
@@ -697,8 +697,8 @@ namespace set {
         ini::File file = ini::load(text);
         std::string prev = file["Section"]["foo"];
         file["Section"].set<int>("foo", value);
-        ASSERT_NE(file["Section"]["foo"], prev);
-        ASSERT_EQ(file["Section"]["foo"], std::to_string(value));
+        ASSERT_STRNE(file["Section"]["foo"].c_str(), prev.c_str());
+        ASSERT_STREQ(file["Section"]["foo"].c_str(), std::to_string(value).c_str());
     }
 
     // Case
@@ -713,8 +713,8 @@ namespace set {
         ini::File file = ini::load(text);
         std::string prev = file["Section"]["foo"];
         file["Section"].set<float>("foo", value);
-        ASSERT_NE(file["Section"]["foo"], prev);
-        ASSERT_EQ(file["Section"]["foo"], stream.str());
+        ASSERT_STRNE(file["Section"]["foo"].c_str(), prev.c_str());
+        ASSERT_STREQ(file["Section"]["foo"].c_str(), stream.str().c_str());
     }
 
     // Case
@@ -729,8 +729,8 @@ namespace set {
         ini::File file = ini::load(text);
         std::string prev = file["Section"]["foo"];
         file["Section"].set<float>("foo", value);
-        ASSERT_NE(file["Section"]["foo"], prev);
-        ASSERT_EQ(file["Section"]["foo"], stream.str());
+        ASSERT_STRNE(file["Section"]["foo"].c_str(), prev.c_str());
+        ASSERT_STREQ(file["Section"]["foo"].c_str(), stream.str().c_str());
     }
 
     // Case
@@ -745,8 +745,8 @@ namespace set {
         ini::File file = ini::load(text);
         std::string prev = file["Section"]["foo"];
         file["Section"].set<double>("foo", value);
-        ASSERT_NE(file["Section"]["foo"], prev);
-        ASSERT_EQ(file["Section"]["foo"], stream.str());
+        ASSERT_STRNE(file["Section"]["foo"].c_str(), prev.c_str());
+        ASSERT_STREQ(file["Section"]["foo"].c_str(), stream.str().c_str());
     }
 
     // Case
@@ -761,8 +761,8 @@ namespace set {
         ini::File file = ini::load(text);
         std::string prev = file["Section"]["foo"];
         file["Section"].set<double>("foo", value);
-        ASSERT_NE(file["Section"]["foo"], prev);
-        ASSERT_EQ(file["Section"]["foo"], stream.str());
+        ASSERT_STRNE(file["Section"]["foo"].c_str(), prev.c_str());
+        ASSERT_STREQ(file["Section"]["foo"].c_str(), stream.str().c_str());
     }
 
     // Case
@@ -774,8 +774,8 @@ namespace set {
         ini::File file = ini::load(text);
         std::string prev = file["Section"]["foo"];
         file["Section"].set<std::string>("foo", value);
-        ASSERT_NE(file["Section"]["foo"], prev);
-        ASSERT_EQ(file["Section"]["foo"], value);
+        ASSERT_STRNE(file["Section"]["foo"].c_str(), prev.c_str());
+        ASSERT_STREQ(file["Section"]["foo"].c_str(), value.c_str());
     }
 
 } // namespace set
@@ -797,7 +797,7 @@ namespace subscript_operator {
     {
         std::string text = "[Section]\nfoo = bar";
         ini::File file = ini::load(text);
-        ASSERT_EQ(file["Section"]["foo"], "bar");
+        ASSERT_STREQ(file["Section"]["foo"].c_str(), "bar");
     }
 
 } // namespace subscript_operator
