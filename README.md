@@ -12,6 +12,32 @@
     </picture>
 </div>
 
+<div align="center">
+    <a href="https://github.com/giosali/ini.h/releases">
+        <img src="https://img.shields.io/github/v/release/giosali/ini.h"
+             alt="Release Version">
+    </a>
+    <a href="https://github.com/giosali/ini.h/blob/main/LICENSE">
+        <img src="https://img.shields.io/github/license/giosali/ini.h"
+             alt="MIT License">
+    </a>
+</div>
+
+<div align="center">
+    <a href="https://github.com/giosali/ini.h/actions/workflows/windows.yml">
+        <img src="https://github.com/giosali/ini.h/actions/workflows/windows.yml/badge.svg"
+             alt="Windows Build">
+    </a>
+    <a href="https://github.com/giosali/ini.h/actions/workflows/macos.yml">
+        <img src="https://github.com/giosali/ini.h/actions/workflows/macos.yml/badge.svg"
+             alt="macOS Build">
+    </a>
+    <a href="https://github.com/giosali/ini.h/actions/workflows/ubuntu.yml">
+        <img src="https://github.com/giosali/ini.h/actions/workflows/ubuntu.yml/badge.svg"
+             alt="Ubuntu Build">
+    </a>
+</div>
+
 <p align="center">
     <b>ini.h</b> is a header-only library for reading and writing INI files in C++ through a simple, intuitive API.
 </p>
