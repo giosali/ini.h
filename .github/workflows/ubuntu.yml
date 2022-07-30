@@ -1,0 +1,32 @@
+name: Ubuntu Build
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'docs/**'
+      - 'ext/**'
+      - '*.md'
+      - '*.yml'
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - 'docs/**'
+      - 'ext/**'
+      - '*.md'
+      - '*.yml'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        working-directory: test
+        run: |
+          cmake -S . -B build -D CMAKE_CXX_COMPILER=g++-10
+          cmake --build build
+
+      - name: Test
+        working-directory: test/build/bin
+        run: ./ini_h
