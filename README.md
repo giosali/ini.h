@@ -52,7 +52,7 @@ To start using **ini.h**, copy the single header file and drop it into your proj
 
 ### Prerequisites
 
-* C++17 or higher
+* **C++17** or higher
 
 ## Usage
 
