@@ -24,7 +24,7 @@ jobs:
       - name: Build
         working-directory: test
         run: |
-          cmake -S . -B build CMAKE_C_COMPILER=$(brew --prefix llvm)/bin/clang -D CMAKE_CXX_COMPILER=$(brew --prefix llvm)/bin/clang++
+          cmake -S . -B build -D CMAKE_CXX_COMPILER=$(brew --prefix llvm)/bin/clang++
           cmake --build build
 
       - name: Test
