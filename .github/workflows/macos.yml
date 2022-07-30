@@ -24,8 +24,8 @@ jobs:
       - name: Build
         working-directory: test
         run: |
-          cmake -S . -B build
-          cmake --build build
+          cmake -S . -B build -std=c++17
+          cmake --build build -std=c++17
 
       - name: Test
         working-directory: test/build/bin
