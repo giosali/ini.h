@@ -22,11 +22,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build
-        working-directory: ${{github.workspace}}/tests
+        working-directory: test
         run: |
           cmake -S . -B build
           cmake --build build
       
       - name: Test
-        working-directory: ${{github.workspace}}/tests/build/bin
+        working-directory: test/build/bin
         run: ./ini_h
