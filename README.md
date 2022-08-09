@@ -42,7 +42,20 @@
     <b>ini.h</b> is a header-only library for reading and writing INI files in C++ through a simple, intuitive API.
 </p>
 
-## Intro
+## Table of Contents
+
+- [Preface](#preface)
+  * [Prerequisites](#prerequisites)
+- [Usage](#usage)
+  * [Reading and Writing INI Files](#reading-and-writing-ini-files)
+  * [Getting and Setting Values](#getting-and-setting-values)
+- [Features](#features)
+  * [Comments](#comments)
+  * [Case Sensitivity](#case-sensitivity)
+  * [Delimiters](#delimiters)
+- [Documentation](#documentation)
+
+## Preface
 
 To start using **ini.h**, copy the single header file and drop it into your project. Now you can use the library by adding the following directive: 
 
@@ -236,3 +249,19 @@ key2 : value
 - [x] [size_t](https://en.cppreference.com/w/c/types/size_t)
 - [x] [std::size_t](https://en.cppreference.com/w/cpp/types/size_t)
 - [x] [std::string](https://en.cppreference.com/w/cpp/string/basic_string)
+
+## Documentation
+
+<div align="center">
+    <picture>
+        <source media="(prefers-color-scheme: dark)"
+                srcset="https://raw.githubusercontent.com/giosali/ini.h/main/ext/documentation-dark.png">
+        <source media="(prefers-color-scheme: light)"
+                srcset="https://raw.githubusercontent.com/giosali/ini.h/main/ext/documentation-light.png">
+        <img src="https://raw.githubusercontent.com/giosali/ini.h/main/ext/documentation-dark.png"
+             alt="Documentation"
+             width="500">
+    </picture>
+</div>
+
+You can view more in-depth, MSDN-style documentation [here](https://giosali.github.io/ini.h).
