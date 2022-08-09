@@ -260,8 +260,8 @@ key2 : value
                 srcset="https://raw.githubusercontent.com/giosali/ini.h/main/ext/documentation-light.png">
         <img src="https://raw.githubusercontent.com/giosali/ini.h/main/ext/documentation-dark.png"
              alt="Documentation"
-             width="500">
+             width="800">
     </picture>
 </div>
 
-You can view more in-depth, MSDN-style documentation [here](https://giosali.github.io/ini.h).
+You can view more in-depth, MSDN-style documentation on the **ini.h** library [here](https://giosali.github.io/ini.h).
